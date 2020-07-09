@@ -1,6 +1,6 @@
 {
   "homepage": "http://annfr542.github.io/dashboardTemplate",
-  "name": "demo",
+  "name": "template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

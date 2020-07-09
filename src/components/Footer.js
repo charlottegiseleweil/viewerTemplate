@@ -5,10 +5,13 @@ import Col from "react-bootstrap/Col";
 
 function Footer() {
   return (
-    <footer style={{ height: "6vh" }}>
+    <footer>
       <Container fluid={true}>
         <Row className="border-top justify-content-between p-3">
-          <Col className="p-0 d-flex justify-content-end">
+          <Col
+            className="p-0 d-flex justify-content-end"
+            style={{ height: "3vh" }}
+          >
             <p className="font-italic">This was created by:</p>
           </Col>
         </Row>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
@@ -52,7 +52,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="/">
         <Container className="p-0 h-100" fluid={true}>
           {/* Menubar*/}
           <Navbar className="border-bottom h-10">

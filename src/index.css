@@ -28,18 +28,17 @@ code {
   overflow-x: hidden;
 }
 
-.dashboard-container {
-  height: 84vh;
-}
+.dashboard-container,
+.leaflet-container,
 .h-80 {
   height: 84vh;
 }
+
 .h-10 {
   height: 9vh;
 }
 .leaflet-container {
   width: 100%;
-  height: 84vh;
 }
 .dataSection {
   background-color: #e2e2e2;
