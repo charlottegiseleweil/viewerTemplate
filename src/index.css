@@ -1,13 +1,76 @@
+html,
+body {
+  height: 100%;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+#root {
+  height: 100%;
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.nav-link {
+  font-size: 2.5vh;
+}
+
+.Infobox {
+  background-color: white;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.dashboard-container {
+  height: 84vh;
+}
+.h-80 {
+  height: 84vh;
+}
+.h-10 {
+  height: 9vh;
+}
+.leaflet-container {
+  width: 100%;
+  height: 84vh;
+}
+.dataSection {
+  background-color: #e2e2e2;
+}
+.dataset {
+  padding: 0 0.5rem 0 1rem;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color: #059700 !important;
+  background-color: #059700 !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+.legend {
+  background-color: white;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Scrolbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(167, 167, 167);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #888;
 }
