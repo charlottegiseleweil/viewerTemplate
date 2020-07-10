@@ -11,7 +11,10 @@ The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
 ## Adding your own data
-All external data such as *shapefiles*, *images*, and *legends* should be placed in their corresponding folders. 
+All external data such as *shapefiles*, *images*, and *legends* should be placed in their corresponding folders.
+
+#### index.js 
+Here you can edit the title of your dashboard
 
 #### App.js
 In this file, you can edit the menu links and the name of the viewer. You could also add more tabs by editing the `menuLinks`property.
@@ -21,7 +24,7 @@ This is where you add links all your data sets and their information. It is cons
 Each dashboard must contain the following properties: <br/>
 `baseMap` <br/>
 `dataSections` An array of all the data sections <br/>
-`datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. Currently, only shapefiles are implemented. <br/>
+`datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. Currently, only shapefiles and tilesets are implemented. <br/>
 `charts` An array of all charts, their data and to which section they belong to. 
 
 #### mapStyling.js
@@ -56,18 +59,16 @@ git commit -m "Your commit message"
 git push origin master
 ```
 
-
-
 ## Advanced Scripts
 
 In the project directory, you can run:
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -77,7 +78,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
