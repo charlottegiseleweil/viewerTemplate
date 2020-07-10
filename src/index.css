@@ -1,14 +1,13 @@
 html,
 body {
-  height: 100%;
-}
-body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  overflow-x: hidden;
 }
 #root {
   height: 100%;
@@ -72,4 +71,10 @@ code {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
+}
+
+.hr-about {
+  width: 25rem;
+  margin: 0.25rem auto;
+  border-top: 5px solid #059700;
 }

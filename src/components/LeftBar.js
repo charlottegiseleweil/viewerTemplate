@@ -49,7 +49,12 @@ class LeftBar extends React.Component {
   render() {
     return (
       <Container fluid={true} className="p-0">
-        <h1 className="border-bottom p-2 font-weight-normal">Explore</h1>
+        <h1
+          className=" p-2 font-weight-normal"
+          style={{ borderBottom: "3px solid #059700" }}
+        >
+          Explore
+        </h1>
         <Col className="p-0">{this.makeCards(this.props.sections)}</Col>
       </Container>
     );

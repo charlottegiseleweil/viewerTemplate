@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route, NavLink } from "react-router-dom";
 import "./App.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
@@ -14,14 +14,18 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "Your viewer Name",
-      headerlinks: [
+      viewerTitle: "Your viewer Name",
+      menuLinks: [
         {
           title: "Dashboard",
           path: "/",
           page: <DashboardPage props={Data().dashboard1} />,
         },
-        { title: "About", path: "/about", page: <AboutPage /> },
+        {
+          title: "About",
+          path: "/about",
+          page: <AboutPage />,
+        },
       ],
     };
   }
@@ -30,9 +34,15 @@ class App extends React.Component {
   makeHeaderLinks = (headerlinks) => {
     return headerlinks.map((item) => {
       return (
-        <Link className="nav-link" to={item.path} key={item.title}>
+        <NavLink
+          className="nav-link"
+          exact={true}
+          activeStyle={{ color: "#059700" }}
+          to={item.path}
+          key={item.title}
+        >
           {item.title}
-        </Link>
+        </NavLink>
       );
     });
   };
@@ -56,18 +66,19 @@ class App extends React.Component {
         <Container className="p-0 h-100" fluid={true}>
           {/* Menubar*/}
           <Navbar className="border-bottom h-10">
-            <Navbar.Brand>{this.state.title}</Navbar.Brand>
+            <Navbar.Brand>{this.state.viewerTitle}</Navbar.Brand>
             <Nav className="ml-auto">
-              {this.makeHeaderLinks(this.state.headerlinks)}
+              {this.makeHeaderLinks(this.state.menuLinks)}
             </Nav>
           </Navbar>
 
           {/* Main content of each page*/}
-          {this.makeRouter(this.state.headerlinks)}
+          {this.makeRouter(this.state.menuLinks)}
 
           {/* Footer*/}
           <Footer />
         </Container>
+        {/*<LandingPage />*/}
       </Router>
     );
   }

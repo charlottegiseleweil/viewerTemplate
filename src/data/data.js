@@ -1,7 +1,11 @@
+/* 
+This file includes the data for all maps, text, legends etc
+*/
 import Style from "./mapStyling";
-// All text, links to maps etx. for all dashboards
+
 function Data() {
   return {
+    //Duplicate if you want several tabs
     dashboard1: {
       baseMap: {
         src:
@@ -11,6 +15,13 @@ function Data() {
         labelsSrc:
           "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
       },
+      /*
+      Each datasection include:
+      id -- order in array 
+      title -- title of section
+      infotext -- text that will be diplayed in statistics bar divided into paragraphs
+      expanded -- if the secion is expanded or collapsed by default
+       */
       dataSections: [
         {
           id: 0,
@@ -38,44 +49,64 @@ function Data() {
             },
             {
               subtitle: "Method",
-              text: "The data was created using...",
+              text:
+                "The data was created using this and that method and that wes really good..",
             },
           ],
           expanded: false,
         },
       ],
+      /*
+      Each dataset include:
+      id -- order in array 
+      sectionID -- which section the dataset belongs to
+      title -- title of dataset
+      type -- what type of source (choose between shapefile, ... ...)
+      src -- file name (place the files in the corresponding folders for shapefile .. )
+      style -- custom styles for shapefiles (create them in mapstyling.js and add them here)
+      legendSrc -- filename of the lagend (place it in the legend folder)
+      selected -- should be false
+       */
       datasets: [
         {
           id: 0,
           sectionID: 0,
           title: "Area of interest",
           type: "shapefile",
-          scr: "AOI.zip",
+          src: "AOI.zip",
           style: Style().AOI,
-          selected: false,
           legendSrc: "exampleLegend3.png",
+          selected: false,
         },
         {
           id: 1,
           sectionID: 1,
           title: "Watershed indicies",
           type: "shapefile",
-          scr: "Watersheds.zip",
+          src: "Watersheds.zip",
           style: Style().watersheds,
-          selected: false,
           legendSrc: "exampleLegend1.png",
+          selected: false,
         },
         {
           id: 2,
           sectionID: 1,
           title: "Flood",
           type: "shapefile",
-          scr: "Flood.zip",
+          src: "Flood.zip",
           style: Style().Flood,
-          selected: false,
           legendSrc: "exampleLegend2.png",
+          selected: false,
         },
       ],
+
+      /* Each chart include:
+      title -- chart title
+      yLabel -- label of y axis
+      SectionID -- which dataSection the chart belongs to
+      chartID -- order in array
+      columns -- data for the chart - the first row includes the x-labels
+      colors -- colors for the data */
       charts: [
         {
           title: "Example Chart 1",

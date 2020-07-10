@@ -19,7 +19,7 @@ class MainMap extends React.Component {
     this.props.selectedDatasets.forEach((id) => {
       let dataset = this.props.datasets[id];
       if (dataset.type === "shapefile") {
-        shp(require("../data/shapefiles/" + dataset.scr)).then(function (
+        shp(require("../data/shapefiles/" + dataset.src)).then(function (
           geojson
         ) {
           //do something with your geojson
