@@ -6,7 +6,7 @@ function CardInfo(props) {
   return (
     <Row className="dataSection m-1 dataset">
       <Col sm={10} className=" p-0">
-        <h6 className="font-weight-normal">{props.item.title}</h6>
+        <h5 className="font-weight-normal">{props.item.title}</h5>
       </Col>
       <Col sm={1} className="p-0 ">
         <div className="custom-control custom-switch cursor-pointer">

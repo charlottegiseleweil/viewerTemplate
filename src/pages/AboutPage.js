@@ -32,18 +32,19 @@ function AboutPage(props) {
         style={{
           backgroundImage: "url('" + headerImg + "')", // add your own image
           backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       >
         <Row className="p-1 justify-content-md-center">
-          <h1 className="text-center text-white font-weight-light display-2">
+          <h1 className="text-center text-white font-weight-light display-1">
             About
           </h1>
         </Row>
         <hr className="hr-about" />
         <Row className="p-1 justify-content-md-center">
-          <h2 className="text-center text-white font-weight-light">
+          <h1 className="text-center text-white font-weight-light">
             One line about what you viewer is for
-          </h2>
+          </h1>
         </Row>
       </Col>
 
@@ -52,17 +53,19 @@ function AboutPage(props) {
           {/* Here you can include the sections you want in your about page*/}
 
           {/* Project information*/}
-          <Row className="p-4 justify-content-md-center">
-            Information about the Project... Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-            montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-            pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
-            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
-            tellus. Aenean leo ligula,
+          <Row className=" justify-content-md-center">
+            <h5 className="p-4 font-weight-normal ">
+              Information about the Project... Lorem ipsum dolor sit amet,
+              consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+              Aenean massa. Cum sociis natoque penatibus et magnis dis
+              parturient montes, nascetur ridiculus mus. Donec quam felis,
+              ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+              massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
+              vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
+              venenatis vitae, justo. Nullam dictum felis eu pede mollis
+              pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
+              nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
+            </h5>
           </Row>
 
           {/* How to use the viewer */}
@@ -73,7 +76,7 @@ function AboutPage(props) {
           </Row>
           <hr className="hr-about" />
           <Row className=" justify-content-md-center">
-            <p className="p-4">
+            <h5 className="p-4 font-weight-normal ">
               Select map layers using the left menu. See summarised data by
               clicking the <InfoCircle /> Icon. <br />
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
@@ -85,7 +88,7 @@ function AboutPage(props) {
               <br />
               Questions, comments, or feedback about the viewer? Please send us
               an <a href="mailto: abc@example.com">email</a>
-            </p>
+            </h5>
           </Row>
 
           {/* Contributors*/}

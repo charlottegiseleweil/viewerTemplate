@@ -22,10 +22,14 @@ function StatisticPanel(props) {
   const makeInfotext = () => {
     return props.item.infotext.map((item) => {
       return (
-        <Row className="p-1 m-1" key={item.subtitle}>
-          <h6 className="font-weight-light">{item.subtitle}</h6>
-          <p>{item.text}</p>
-        </Row>
+        <div key={item.subtitle} className="m-1 p-1">
+          <Row className=" m-0">
+            <h4 className="font-weight-light m-0">{item.subtitle}</h4>
+          </Row>
+          <Row className=" m-0">
+            <h6 className="font-weight-light m-0">{item.text}</h6>
+          </Row>
+        </div>
       );
     });
   };

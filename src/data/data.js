@@ -53,7 +53,7 @@ function Data() {
                 "The data was created using this and that method and that wes really good..",
             },
           ],
-          expanded: false,
+          expanded: true,
         },
       ],
       /*
@@ -76,7 +76,7 @@ function Data() {
           src: "AOI.zip",
           style: Style().AOI,
           legendSrc: "exampleLegend3.png",
-          selected: true,
+          selected: false,
         },
         {
           id: 1,

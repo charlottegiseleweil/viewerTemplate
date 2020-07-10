@@ -23,7 +23,7 @@ function LandingPage(props) {
 
           {/* Header image*/}
           <img
-            className="landingSection justify-content-md-center"
+            className="landingSection justify-content-md-center "
             src={headerImg}
             alt="header"
             width="100%"
@@ -31,16 +31,18 @@ function LandingPage(props) {
 
           {/* Project information*/}
           <Row className=" m-0 justify-content-md-center landingSection">
-            Information about the Project... Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient
-            montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
-            pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-            Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.
-            In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
-            Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
-            dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
-            tellus. Aenean leo ligula.
+            <h5 className="p-4 font-weight-normal ">
+              Information about the Project... Lorem ipsum dolor sit amet,
+              consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+              Aenean massa. Cum sociis natoque penatibus et magnis dis
+              parturient montes, nascetur ridiculus mus. Donec quam felis,
+              ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
+              massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
+              vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
+              venenatis vitae, justo. Nullam dictum felis eu pede mollis
+              pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
+              nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
+            </h5>
           </Row>
 
           {/* How to use the viewer */}
@@ -51,7 +53,7 @@ function LandingPage(props) {
           </Row>
           <hr className="hr-about" />
           <Row className="m-0 justify-content-md-center landingSection">
-            <p>
+            <h5 className=" p-4 font-weight-normal ">
               Select map layers using the left menu. See summarised data by
               clicking the <InfoCircle /> Icon. <br />
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
@@ -63,7 +65,7 @@ function LandingPage(props) {
               <br />
               Questions, comments, or feedback about the viewer? Please send us
               an <a href="mailto: abc@example.com">email</a>
-            </p>
+            </h5>
           </Row>
 
           {/*Start exploring button*/}
