@@ -28,6 +28,11 @@ class MainMap extends React.Component {
           }).addTo(layers);
         });
       }
+      if (dataset.type === "tiles") {
+        L.tileLayer(dataset.src, {
+          attribution: "",
+        }).addTo(layers);
+      }
     });
   };
 

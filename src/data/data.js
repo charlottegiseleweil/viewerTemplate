@@ -61,7 +61,7 @@ function Data() {
       id -- order in array 
       sectionID -- which section the dataset belongs to
       title -- title of dataset
-      type -- what type of source (choose between shapefile, ... ...)
+      type -- what type of source (choose between shapefile, tiles )
       src -- file name (place the files in the corresponding folders for shapefile .. )
       style -- custom styles for shapefiles (create them in mapstyling.js and add them here)
       legendSrc -- filename of the lagend (place it in the legend folder)
@@ -91,12 +91,12 @@ function Data() {
         {
           id: 2,
           sectionID: 1,
-          title: "Flood",
-          type: "shapefile",
-          src: "Flood.zip",
-          style: Style().Flood,
-          legendSrc: "exampleLegend2.png",
-          selected: false,
+          title: "Dangue Risk",
+          type: "tiles",
+          src:
+            "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_pres/{z}/{x}/{y}.png",
+          legendSrc: "exampleLegend4.png",
+          selected: true,
         },
       ],
 

@@ -33,13 +33,6 @@ function Style() {
       opacity: 0.9,
       color: "#ff0000",
     },
-    Flood: {
-      fillColor: "#537199",
-      fillOpacity: 0.5,
-      weight: 0.5,
-      opacity: 0.7,
-      color: "#537199",
-    },
   };
 }
 
