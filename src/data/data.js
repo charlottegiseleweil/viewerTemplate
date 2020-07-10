@@ -34,7 +34,7 @@ function Data() {
             {
               subtitle: "Method",
               text:
-                "The data was created using this and that method and that wes really good.. ",
+                "The data was created using this and that method and that was really good.. ",
             },
           ],
           expanded: false,
@@ -50,7 +50,7 @@ function Data() {
             {
               subtitle: "Method",
               text:
-                "The data was created using this and that method and that wes really good..",
+                "The data was created using this and that method and that was really good..",
             },
           ],
           expanded: true,
@@ -86,17 +86,17 @@ function Data() {
           src: "Watersheds.zip",
           style: Style().watersheds,
           legendSrc: "exampleLegend1.png",
-          selected: false,
+          selected: true,
         },
         {
           id: 2,
           sectionID: 1,
-          title: "Dangue Risk",
+          title: "Dengue Risk",
           type: "tiles",
           src:
             "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_pres/{z}/{x}/{y}.png",
           legendSrc: "exampleLegend4.png",
-          selected: true,
+          selected: false,
         },
       ],
 

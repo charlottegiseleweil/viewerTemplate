@@ -40,8 +40,8 @@ class BarChart extends React.Component {
   render() {
     return (
       <div>
-        <h6 className="text-center">{this.props.item.title}</h6>
-        <div id={"chart" + this.props.item.chartID}></div>
+        <h6 className="text-center color-white">{this.props.item.title}</h6>
+        <div id={"chart" + this.props.item.chartID} className="inverted"></div>
       </div>
     );
   }

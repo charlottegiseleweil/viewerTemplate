@@ -28,7 +28,7 @@ class App extends React.Component {
           page: <AboutPage />,
         },
       ],
-      showLandingPage: true, //Toggle on and off the landing page
+      showLandingPage: false, //Toggle on and off the landing page
     };
   }
 
@@ -42,7 +42,7 @@ class App extends React.Component {
         <NavLink
           className="nav-link"
           exact={true}
-          activeStyle={{ color: "#059700" }}
+          activeStyle={{ color: "var(--highlight-color)" }}
           to={item.path}
           key={item.title}
         >
@@ -70,7 +70,7 @@ class App extends React.Component {
       <Router basename="/">
         <Container className="p-0 h-100" fluid={true}>
           {/* Menubar*/}
-          <Navbar className="border-bottom h-10">
+          <Navbar className="h-10 bg-nav" variant="dark">
             <Navbar.Brand>{this.state.viewerTitle}</Navbar.Brand>
             <Nav className="ml-auto">
               {this.makeHeaderLinks(this.state.menuLinks)}

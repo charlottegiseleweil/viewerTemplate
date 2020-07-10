@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { InfoCircle } from "react-bootstrap-icons";
 
-const headerImg = require("../static/images/aboutHeader.png"); // Add your own header image
+const headerImg = require("../static/images/Planet.png"); // Add your own header image
 
 function LandingPage(props) {
   return (

@@ -22,9 +22,14 @@ function StatisticPanel(props) {
   const makeInfotext = () => {
     return props.item.infotext.map((item) => {
       return (
-        <div key={item.subtitle} className="m-1 p-1">
+        <div key={item.subtitle} className="m-1 p-1 color-white">
           <Row className=" m-0">
-            <h4 className="font-weight-light m-0">{item.subtitle}</h4>
+            <h4
+              className="font-weight-normal m-0"
+              style={{ borderBottom: "2px solid var(--highlight-color)" }}
+            >
+              {item.subtitle}
+            </h4>
           </Row>
           <Row className=" m-0">
             <h6 className="font-weight-light m-0">{item.text}</h6>
@@ -39,8 +44,13 @@ function StatisticPanel(props) {
       <Col sm={3} className="p-0 offset-sm-3">
         <animated.div className="p-2 border-right Infobox h-80" style={style}>
           <Row style={{ padding: "0 1rem" }}>
-            <h4 className="font-weight-normal">{props.item.title}</h4>
-            <h4 className="ml-auto">
+            <h3
+              className="font-weight-normal color-white"
+              style={{ borderBottom: "2px solid var(--highlight-color)" }}
+            >
+              {props.item.title}
+            </h3>
+            <h4 className="ml-auto color-white">
               <XSquare
                 className="cursor-pointer"
                 onClick={() => props.closeInfo()}

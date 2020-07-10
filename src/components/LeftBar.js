@@ -48,10 +48,10 @@ class LeftBar extends React.Component {
 
   render() {
     return (
-      <Container fluid={true} className="p-0">
+      <Container fluid={true} className="p-0 color-white">
         <h1
-          className=" p-2 font-weight-normal"
-          style={{ borderBottom: "3px solid #059700" }}
+          className=" p-2 font-weight-light"
+          style={{ borderBottom: "3px solid var(--highlight-color)" }}
         >
           Explore
         </h1>

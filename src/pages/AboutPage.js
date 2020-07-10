@@ -7,25 +7,26 @@ import { InfoCircle } from "react-bootstrap-icons";
 import Contributor from "../components/Contributor";
 
 //Import all images you want to use
-const headerImg = require("../static/images/aboutHeader.png");
+const headerImg = require("../static/images/Planet.png");
 const noProfileImg = require("../static/images/no-profile-img.png");
 
 // Add all contributors to this array
 let contributors = [
   {
-    name: "Person 1",
-    jobTitle: "Lead scientist",
-    img: noProfileImg, // if none provided the noProfileImg will be used
+    name: "Charlotte Weil",
+    jobTitle: "Visualization expert",
+    img: require("../static/images/cw.png"), // if none provided the noProfileImg will be used
   },
   {
-    name: "Person 2",
-    jobTitle: "Visualisation expert",
+    name: "Anna Fredriksson Häägg",
+    jobTitle: "Visualization expert",
+    img: require("../static/images/af1.png"),
   },
 ];
 
 function AboutPage(props) {
   return (
-    <Container fluid={true} className="p-0 m-0">
+    <Container fluid={true} className="p-0 m-0 bg-black color-white">
       {/* About header */}
       <Col
         className="p-5 m-0"

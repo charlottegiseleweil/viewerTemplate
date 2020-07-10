@@ -56,7 +56,7 @@ class Dashboard extends React.Component {
           <Row className="p-0 justify-content-center h-80">
             <Col
               sm={3}
-              className="border-right p-2 hidden-md-down"
+              className=" p-2 hidden-md-down bg-black"
               style={{ zIndex: 5000 }}
             >
               <LeftBar
@@ -79,7 +79,7 @@ class Dashboard extends React.Component {
             </Col>
           </Row>
         </Container>
-        <Container fluid={true} className="position-absolute fixed-top ">
+        <Container fluid={true} className="position-absolute fixed-top">
           {this.state.statisticPanel.show && (
             <StatisticPanel
               item={this.state.dataSections[this.state.statisticPanel.id]}

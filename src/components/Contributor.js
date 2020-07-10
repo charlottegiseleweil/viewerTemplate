@@ -11,10 +11,12 @@ function Contributor(props) {
         width="100%"
       />
       <Row className="justify-content-center">
-        <h4 className="m-0">{props.contributor.name}</h4>
+        <h5 className="m-0 text-center font-weight-normal">
+          {props.contributor.name}
+        </h5>
       </Row>
       <Row className="justify-content-center">
-        <h5 className="font-italic p-1 m-0">{props.contributor.jobTitle}</h5>
+        <h6 className="font-italic p-1 m-0 ">{props.contributor.jobTitle}</h6>
       </Row>
     </Col>
   );

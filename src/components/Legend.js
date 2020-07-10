@@ -51,7 +51,7 @@ class Legend extends React.Component {
             className="ml-auto offset-sm-11 p-1 dataSection cursor-pointer"
             onClick={() => this.toggleCollapse()}
           >
-            <h6 className="text-center m-0">
+            <h6 className="text-center m-0 color-white">
               {!this.state.isCollapsed && <ChevronBarUp />}
               {this.state.isCollapsed && <ChevronDown />}
             </h6>
