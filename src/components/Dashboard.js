@@ -10,6 +10,13 @@ import StatisticPanel from "../components/StatisticPanel";
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
+    let selectedDatasets = [];
+    props.data.datasets.forEach((element) => {
+      if (element.selected) {
+        selectedDatasets.push(element.id);
+      }
+    });
+
     this.state = {
       baseMap: props.data.baseMap,
       dataSections: props.data.dataSections,
@@ -19,7 +26,7 @@ class Dashboard extends React.Component {
         show: false,
         id: 0,
       },
-      selectedDatasets: [],
+      selectedDatasets: selectedDatasets,
     };
   }
 

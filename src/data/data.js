@@ -65,7 +65,7 @@ function Data() {
       src -- file name (place the files in the corresponding folders for shapefile .. )
       style -- custom styles for shapefiles (create them in mapstyling.js and add them here)
       legendSrc -- filename of the lagend (place it in the legend folder)
-      selected -- should be false
+      selected -- If the dataset should be selected by default
        */
       datasets: [
         {
@@ -76,7 +76,7 @@ function Data() {
           src: "AOI.zip",
           style: Style().AOI,
           legendSrc: "exampleLegend3.png",
-          selected: false,
+          selected: true,
         },
         {
           id: 1,
