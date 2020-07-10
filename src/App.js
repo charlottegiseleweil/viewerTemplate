@@ -8,6 +8,7 @@ import Nav from "react-bootstrap/Nav";
 import Footer from "./components/Footer";
 import DashboardPage from "./pages/DashboardPage";
 import AboutPage from "./pages/AboutPage";
+import LandingPage from "./components/Landing";
 import Data from "./data/data";
 
 class App extends React.Component {
@@ -27,9 +28,13 @@ class App extends React.Component {
           page: <AboutPage />,
         },
       ],
+      showLandingPage: true, //Toggle on and off the landing page
     };
   }
-  componentDidMount() {}
+
+  updateState = (state) => {
+    this.setState(state);
+  };
 
   makeHeaderLinks = (headerlinks) => {
     return headerlinks.map((item) => {
@@ -78,7 +83,14 @@ class App extends React.Component {
           {/* Footer*/}
           <Footer />
         </Container>
-        {/*<LandingPage />*/}
+
+        {/* Landing page*/}
+        {this.state.showLandingPage && (
+          <LandingPage
+            name={this.state.viewerTitle}
+            updateState={this.updateState}
+          />
+        )}
       </Router>
     );
   }

@@ -78,3 +78,19 @@ code {
   margin: 0.25rem auto;
   border-top: 5px solid #059700;
 }
+.landingContainer {
+  width: 100% !important;
+  height: 100% !important;
+  background-color: rgba(0, 0, 0, 0.486) !important;
+  z-index: 6000 !important;
+}
+.landingSquare {
+  background-color: white;
+  height: 69vh;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.landingSection {
+  padding: 0.25rem 4rem;
+}
