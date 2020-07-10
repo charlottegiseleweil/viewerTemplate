@@ -7,7 +7,7 @@ import { InfoCircle } from "react-bootstrap-icons";
 import Contributor from "../components/Contributor";
 
 //Import all images you want to use
-const headerImg = require("../static/images/Planet.png");
+const headerImg = require("../static/images/headerImg.png");
 const noProfileImg = require("../static/images/no-profile-img.png");
 
 // Add all contributors to this array

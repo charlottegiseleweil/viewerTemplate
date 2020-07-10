@@ -35,6 +35,7 @@ function Card(props) {
           <h5
             onClick={(e) => props.expandSection(props.item)}
             style={{ margin: "0.25rem 0" }}
+            className="hover-highlight"
           >
             {!props.item.expanded && <ChevronDown />}
             {props.item.expanded && <ChevronBarUp />}
@@ -42,7 +43,10 @@ function Card(props) {
         </Col>
         <Col sm={1} className="p-0 cursor-pointer">
           <h4>
-            <InfoCircle onClick={(e) => props.click(props.item)} />
+            <InfoCircle
+              className="hover-highlight"
+              onClick={(e) => props.click(props.item)}
+            />
           </h4>
         </Col>
       </Row>

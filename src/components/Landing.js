@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { InfoCircle } from "react-bootstrap-icons";
 
-const headerImg = require("../static/images/Planet.png"); // Add your own header image
+const headerImg = require("../static/images/headerImg.png"); // Add your own header image
 
 function LandingPage(props) {
   return (
@@ -22,12 +22,14 @@ function LandingPage(props) {
           </Row>
 
           {/* Header image*/}
-          <img
-            className="landingSection justify-content-md-center "
-            src={headerImg}
-            alt="header"
-            width="100%"
-          />
+          <Row className=" m-2 justify-content-md-center landingSection p-1">
+            <img
+              className="landingSection justify-content-md-center "
+              src={headerImg}
+              alt="header"
+              width="100%"
+            />
+          </Row>
 
           {/* Project information*/}
           <Row className=" m-0 justify-content-md-center landingSection">
@@ -71,10 +73,19 @@ function LandingPage(props) {
           {/*Start exploring button*/}
           <Row
             className="m-0 p-2 position-sticky fixed-bottom justify-content-md-center cursor-pointer"
-            style={{ backgroundColor: "#059700" }}
+            style={{
+              backgroundColor: "var(--highlight-color)",
+            }}
             onClick={(e) => props.updateState({ showLandingPage: false })}
           >
-            <h3 className="text-white font-weight-normal">Start Exploring</h3>
+            <h3
+              className="font-weight-normal"
+              style={{
+                color: "var(--background-color) ",
+              }}
+            >
+              Start Exploring
+            </h3>
           </Row>
         </Col>
       </Row>

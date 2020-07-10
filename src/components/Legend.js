@@ -48,10 +48,10 @@ class Legend extends React.Component {
         <Row className="p-0 m-0">
           <Col
             sm={1}
-            className="ml-auto offset-sm-11 p-1 dataSection cursor-pointer"
+            className="ml-auto offset-sm-11 p-1 dataSection cursor-pointer color-white"
             onClick={() => this.toggleCollapse()}
           >
-            <h6 className="text-center m-0 color-white">
+            <h6 className="text-center m-0 hover-highlight ">
               {!this.state.isCollapsed && <ChevronBarUp />}
               {this.state.isCollapsed && <ChevronDown />}
             </h6>

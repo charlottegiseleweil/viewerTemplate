@@ -100,11 +100,13 @@ code {
   z-index: 6000 !important;
 }
 .landingSquare {
-  background-color: white;
+  background-color: var(--background-color);
+  opacity: 1;
   height: 69vh;
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
+  color: white !important;
 }
 .landingSection {
   padding: 0.25rem 4rem;
@@ -130,4 +132,8 @@ text.c3-axis-y-label {
 }
 .bg-nav {
   background-color: #2b332c !important;
+}
+
+.hover-highlight:hover {
+  color: var(--highlight-color);
 }

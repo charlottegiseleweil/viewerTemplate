@@ -52,7 +52,7 @@ function StatisticPanel(props) {
             </h3>
             <h4 className="ml-auto color-white">
               <XSquare
-                className="cursor-pointer"
+                className="cursor-pointer hover-highlight"
                 onClick={() => props.closeInfo()}
               />
             </h4>
