@@ -13,13 +13,13 @@ You will also see any lint errors in the console.
 ## Adding your own data
 All external data such as *shapefiles*, *images*, and *legends* should be placed in their corresponding folders.
 
-#### index.js 
+#### public/index.html 
 Here you can edit the title of your dashboard
 
-#### App.js
+#### src/App.js
 In this file, you can edit the menu links and the name of the viewer. You could also add more tabs by editing the `menuLinks`property.
 
-#### Data.js
+#### src/data/Data.js
 This is where you add links all your data sets and their information. It is constructed as json object where each dashboard (originally just one) has its own properties. <br/>
 Each dashboard must contain the following properties: <br/>
 `baseMap` <br/>
@@ -27,17 +27,20 @@ Each dashboard must contain the following properties: <br/>
 `datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. Currently, only shapefiles and tilesets are implemented. <br/>
 `charts` An array of all charts, their data and to which section they belong to. 
 
-#### mapStyling.js
+#### src/components/mapStyling.js
 Here you can add styling functions for your shapefiles -- (optional)
 
-#### Footer.js
+#### src/components/Footer.js
 In this file, you can edit the Footer. If you don't want it you can remove it from `App.js`
 
-#### AboutPage.js
+#### src/components/AboutPage.js
 In this file, you can edit the content of the about page. In the beginning of the document, there is a variable called `contributors` where you can add all your contributors and their images. 
 
-#### Landing.js
+#### src/components/Landing.js
 In this file, you can edit the Landing page. If you don't want it you can remove it from `App.js`
+
+#### src/components/LeftPanel.js
+In this file, you can make custom changes to the left panel 
 
 ## Deploying the dashboard to GitHub pages
 To do this you need to have a GitHub account
