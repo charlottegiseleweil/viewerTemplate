@@ -6,7 +6,7 @@ import { XSquare } from "react-bootstrap-icons";
 
 import BarChart from "./BarChart";
 
-function StatisticPanel(props) {
+function SecondaryPanel(props) {
   const style = useSpring({ opacity: 1, from: { opacity: 0 } });
 
   const makeCharts = () => {
@@ -66,4 +66,4 @@ function StatisticPanel(props) {
   );
 }
 
-export default StatisticPanel;
+export default SecondaryPanel;

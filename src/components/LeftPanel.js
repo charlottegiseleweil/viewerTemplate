@@ -2,15 +2,15 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 
-import Card from "../components/Card";
+import Card from "./Card";
 
-class LeftBar extends React.Component {
+class LeftPanel extends React.Component {
   showInfo = (id) => {
-    let statisticPanel = this.props.statisticPanel;
-    statisticPanel.show =
-      statisticPanel.show && statisticPanel.id === id ? false : true;
-    statisticPanel.id = id;
-    this.props.updateState(statisticPanel);
+    let SecondaryPanel = this.props.SecondaryPanel;
+    SecondaryPanel.show =
+      SecondaryPanel.show && SecondaryPanel.id === id ? false : true;
+    SecondaryPanel.id = id;
+    this.props.updateState(SecondaryPanel);
   };
 
   expandSection = (id) => {
@@ -61,4 +61,4 @@ class LeftBar extends React.Component {
   }
 }
 
-export default LeftBar;
+export default LeftPanel;

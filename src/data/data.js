@@ -5,7 +5,7 @@ import Style from "./mapStyling";
 
 function Data() {
   return {
-    //Duplicate if you want several tabs
+    //Duplicate if you want several tabs, dahboard1 is imported to the default dashboard tab in the menu.
     dashboard1: {
       baseMap: {
         src:

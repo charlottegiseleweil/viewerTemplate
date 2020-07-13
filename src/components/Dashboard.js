@@ -4,8 +4,8 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 import Map from "../components/Map";
-import LeftBar from "../components/LeftBar";
-import StatisticPanel from "../components/StatisticPanel";
+import LeftPanel from "../components/LeftPanel";
+import SecondaryPanel from "./SecondaryPanel";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -22,7 +22,7 @@ class Dashboard extends React.Component {
       dataSections: props.data.dataSections,
       datasets: props.data.datasets,
       charts: props.data.charts,
-      statisticPanel: {
+      SecondaryPanel: {
         show: false,
         id: 0,
       },
@@ -43,9 +43,9 @@ class Dashboard extends React.Component {
   };
 
   closeInfo = () => {
-    let statPanel = this.state.statisticPanel;
+    let statPanel = this.state.SecondaryPanel;
     statPanel.show = false;
-    this.setState({ statisticPanel: statPanel });
+    this.setState({ SecondaryPanel: statPanel });
   };
   componentDidUpdate() {}
 
@@ -59,10 +59,10 @@ class Dashboard extends React.Component {
               className=" p-2 hidden-md-down bg-black"
               style={{ zIndex: 5000 }}
             >
-              <LeftBar
+              <LeftPanel
                 sections={this.state.dataSections}
                 datasets={this.state.datasets}
-                statisticPanel={this.state.statisticPanel}
+                SecondaryPanel={this.state.SecondaryPanel}
                 updateState={this.updateState}
                 updateDatasets={this.updateDatasets}
                 updateSelectedDatasets={this.updateSelectedDatasets}
@@ -80,9 +80,9 @@ class Dashboard extends React.Component {
           </Row>
         </Container>
         <Container fluid={true} className="position-absolute fixed-top">
-          {this.state.statisticPanel.show && (
-            <StatisticPanel
-              item={this.state.dataSections[this.state.statisticPanel.id]}
+          {this.state.SecondaryPanel.show && (
+            <SecondaryPanel
+              item={this.state.dataSections[this.state.SecondaryPanel.id]}
               charts={this.state.charts}
               closeInfo={this.closeInfo}
             />
