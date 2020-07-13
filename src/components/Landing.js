@@ -72,10 +72,7 @@ function LandingPage(props) {
 
           {/*Start exploring button*/}
           <Row
-            className="m-0 p-2 position-sticky fixed-bottom justify-content-md-center cursor-pointer"
-            style={{
-              backgroundColor: "var(--highlight-color)",
-            }}
+            className="hover-opacity m-0 p-2 position-sticky fixed-bottom justify-content-md-center cursor-pointer"
             onClick={(e) => props.updateState({ showLandingPage: false })}
           >
             <h3

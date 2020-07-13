@@ -37,7 +37,7 @@ function Data() {
                 "The data was created using this and that method and that was really good.. ",
             },
           ],
-          expanded: false,
+          expanded: true,
         },
         {
           id: 1,

@@ -1,5 +1,6 @@
 :root {
   --highlight-color: #74ca7f;
+  --dark-highlight-color: #5ea567;
   --background-color: #08130f;
   --card-color: #22332eea;
   --text-color: white;
@@ -16,7 +17,7 @@ body {
   overflow-x: hidden;
 }
 .color-white {
-  color: white !important;
+  color: var(--text-color) !important;
 }
 #root {
   height: 100%;
@@ -35,6 +36,12 @@ code {
   opacity: 0.9;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.leftbar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 86vh;
 }
 
 .dashboard-container,
@@ -106,7 +113,7 @@ code {
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
-  color: white !important;
+  color: var(--text-color) !important;
 }
 .landingSection {
   padding: 0.25rem 4rem;
@@ -116,19 +123,19 @@ code {
 }
 
 path.domain {
-  fill: white;
-  stroke: white !important;
+  fill: var(--text-color) ite;
+  stroke: var(--text-color) !important;
 }
 
 .tick,
 .c3-legend-item text,
 text.c3-axis-y-label {
-  fill: white !important;
+  fill: var(--text-color) !important;
 }
 .tick path,
 .tick line {
   fill: none;
-  stroke: #fff !important;
+  stroke: var(--text-color) !important;
 }
 .bg-nav {
   background-color: #2b332c !important;
@@ -136,4 +143,10 @@ text.c3-axis-y-label {
 
 .hover-highlight:hover {
   color: var(--highlight-color);
+}
+.hover-opacity {
+  background-color: var(--highlight-color);
+}
+.hover-opacity:hover {
+  background-color: var(--dark-highlight-color);
 }
