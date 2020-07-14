@@ -5,32 +5,38 @@ import Col from "react-bootstrap/Col";
 import Card from "./Card";
 
 class LeftPanel extends React.Component {
-  showInfo = (id) => {
+  // given an section id, this function displays the secondary panel with that id
+  showInfo = (sectionID) => {
     let SecondaryPanel = this.props.SecondaryPanel;
     SecondaryPanel.show =
-      SecondaryPanel.show && SecondaryPanel.id === id ? false : true;
-    SecondaryPanel.id = id;
+      SecondaryPanel.show && SecondaryPanel.id === sectionID ? false : true;
+    SecondaryPanel.id = sectionID;
     this.props.updateState(SecondaryPanel);
   };
 
-  expandSection = (id) => {
+  // function for expanding the section
+  expandSection = (sectionID) => {
     let dataSections = [...this.props.sections];
-    dataSections[id].expanded = dataSections[id].expanded ? false : true;
+    dataSections[sectionID].expanded = dataSections[sectionID].expanded
+      ? false
+      : true;
     this.props.updateState(dataSections);
   };
 
-  toggleDataset = (id) => {
+  // function for selecting a data set to be displayed on the map
+  toggleDataset = (datasetID) => {
     let datasets = [].concat([...this.props.datasets]);
-    datasets[id].selected = datasets[id].selected ? false : true;
+    datasets[datasetID].selected = datasets[datasetID].selected ? false : true;
     this.props.updateDatasets(datasets);
 
     let selectedDatasets = [...this.props.selectedDatasets];
-    datasets[id].selected
-      ? selectedDatasets.push(id)
-      : selectedDatasets.splice(selectedDatasets.indexOf(id), 1);
+    datasets[datasetID].selected
+      ? selectedDatasets.push(datasetID)
+      : selectedDatasets.splice(selectedDatasets.indexOf(datasetID), 1);
     this.props.updateSelectedDatasets(selectedDatasets);
   };
 
+  // display the sections in the leftpanel
   makeCards = (dataSections) => {
     return dataSections.map((item) => {
       return (

@@ -1,13 +1,14 @@
 import React from "react";
 import L from "leaflet";
 import shp from "shpjs";
+import Container from "react-bootstrap/Container";
 
 import Legend from "./Legend";
-import Container from "react-bootstrap/Container";
 
 const parse_georaster = require("georaster");
 const GeoRasterLayer = require("georaster-layer-for-leaflet");
 
+// variables to hold the main map and all the layers displayed
 let map;
 let layers;
 
@@ -17,29 +18,7 @@ class MainMap extends React.Component {
     this.state = {};
   }
 
-  updateLayers = () => {
-    layers.clearLayers();
-    this.props.selectedDatasets.forEach((id) => {
-      let dataset = this.props.datasets[id];
-
-      switch (dataset.type) {
-        case "shapefile":
-          addShapefile(dataset);
-          break;
-
-        case "tiles":
-          addTiles(dataset);
-          break;
-
-        case "raster":
-          addRaster(dataset);
-          break;
-
-        default:
-      }
-    });
-  };
-
+  // initialize the map
   componentDidMount() {
     // create base map
     map = L.map("map", {
@@ -66,10 +45,7 @@ class MainMap extends React.Component {
     }
   }
 
-  isDataSelected = () => {
-    return this.props.selectedDatasets.length > 0;
-  };
-
+  // this function contains the html code that will be rendered
   render() {
     return (
       <Container fluid={true} className="p-0">
@@ -83,6 +59,34 @@ class MainMap extends React.Component {
       </Container>
     );
   }
+
+  // function to update all selected layers
+  updateLayers = () => {
+    layers.clearLayers();
+    this.props.selectedDatasets.forEach((id) => {
+      let dataset = this.props.datasets[id];
+
+      switch (dataset.type) {
+        case "shapefile":
+          addShapefile(dataset);
+          break;
+
+        case "tiles":
+          addTiles(dataset);
+          break;
+
+        case "raster":
+          addRaster(dataset);
+          break;
+
+        default:
+      }
+    });
+  };
+
+  isDataSelected = () => {
+    return this.props.selectedDatasets.length > 0;
+  };
 }
 
 export default MainMap;

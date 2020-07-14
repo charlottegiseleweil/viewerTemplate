@@ -9,6 +9,7 @@ import BarChart from "./BarChart";
 function SecondaryPanel(props) {
   const style = useSpring({ opacity: 1, from: { opacity: 0 } });
 
+  // add all charts
   const makeCharts = () => {
     return props.charts.map((item) => {
       return (
@@ -19,6 +20,7 @@ function SecondaryPanel(props) {
     });
   };
 
+  // add infotext
   const makeInfotext = () => {
     return props.item.infotext.map((item) => {
       return (
