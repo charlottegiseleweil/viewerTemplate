@@ -16,7 +16,9 @@ function Contributor(props) {
         </h5>
       </Row>
       <Row className="justify-content-center">
-        <h6 className="font-italic p-1 m-0 ">{props.contributor.jobTitle}</h6>
+        <h6 className=" text-center font-italic font-weight-light p-1 m-0 ">
+          {props.contributor.jobTitle}
+        </h6>
       </Row>
     </Col>
   );

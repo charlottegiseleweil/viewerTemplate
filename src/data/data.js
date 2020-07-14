@@ -29,12 +29,12 @@ function Data() {
           infotext: [
             {
               subtitle: "Description",
-              text: "This is a description of the data sets and",
+              text: "This is a description of the data sets",
             },
             {
               subtitle: "Method",
               text:
-                "The data was created using this and that method and that was really good.. ",
+                "Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aenean commodo ligula eget dolor.Aenean massa. Cum sociis natoque penatibus et magnis disparturient montes, nascetur ridiculus mus.",
             },
           ],
           expanded: true,
@@ -45,12 +45,12 @@ function Data() {
           infotext: [
             {
               subtitle: "Description",
-              text: "This is a description of the data sets and",
+              text: "This is a description of the data sets ",
             },
             {
               subtitle: "Method",
               text:
-                "The data was created using this and that method and that was really good..",
+                "Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aenean commodo ligula eget dolor.Aenean massa. Cum sociis natoque penatibus et magnis disparturient montes, nascetur ridiculus mus.",
             },
           ],
           expanded: true,

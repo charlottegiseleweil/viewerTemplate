@@ -2,9 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { InfoCircle } from "react-bootstrap-icons";
 
-const headerImg = require("../static/images/headerImg.png"); // Add your own header image
+const natcapLogo = require("../static/images/natcap.png"); // Add your own images like this
 
 function LandingPage(props) {
   return (
@@ -17,57 +16,46 @@ function LandingPage(props) {
           {/* Here you can include the sections you want on your landing page*/}
           <Row className="p-3 m-0 justify-content-md-center">
             <h1 className="text-center font-weight-light m-2 p-0 ">
-              Welcome to the {props.name}
+              Viewer Template
             </h1>
-          </Row>
-
-          {/* Header image*/}
-          <Row className=" m-2 justify-content-md-center landingSection p-1">
-            <img
-              className="landingSection justify-content-md-center "
-              src={headerImg}
-              alt="header"
-              width="100%"
-            />
           </Row>
 
           {/* Project information*/}
           <Row className=" m-0 justify-content-md-center landingSection">
-            <h5 className="p-4 font-weight-normal ">
-              Information about the Project... Lorem ipsum dolor sit amet,
-              consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-              Aenean massa. Cum sociis natoque penatibus et magnis dis
-              parturient montes, nascetur ridiculus mus. Donec quam felis,
-              ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
-              massa quis enim. Donec pede justo, fringilla vel, aliquet nec,
-              vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
-              venenatis vitae, justo. Nullam dictum felis eu pede mollis
-              pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
-              nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
-            </h5>
-          </Row>
-
-          {/* How to use the viewer */}
-          <Row className="p-1 m-0 justify-content-md-center">
-            <h2 className="text-center font-weight-normal ">
-              How to use the viewer
-            </h2>
-          </Row>
-          <hr className="hr-about" />
-          <Row className="m-0 justify-content-md-center landingSection">
-            <h5 className=" p-4 font-weight-normal ">
-              Select map layers using the left menu. See summarised data by
-              clicking the <InfoCircle /> Icon. <br />
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-              Donec quam felis, ultricies nec, pellentesque eu, pretium quis,
-              sem. Nulla consequat massa quis enim.
+            <h5 className="p-4 font-weight-light ">
+              The viewer template is created to be used by researchers who are
+              non-visualization developers but want to communicate their spatial
+              data as map-layers on a website. The template can through a
+              minimum amount of coding be adjusted to display shapefiles,
+              tilesets, and rasters on maps in addition to summarising data in
+              bar charts. Places to include information about the specific
+              project as well as descriptions and methods for creating the
+              datasets is also be provided. <br />
+              <br />
+              Get started by cloning the codebase in the{" "}
+              <a href="https://github.com/charlottegiseleweil/viewerTemplate">
+                Github repo{" "}
+              </a>
+              or explore our deployed{" "}
+              <a href="http://viz.naturalcapitalproject.org/viewerTempla">
+                demo-version
+              </a>
+              .
               <br />
               <br />
               Questions, comments, or feedback about the viewer? Please send us
-              an <a href="mailto: abc@example.com">email</a>
+              an <a href="mailto: chweil@stanford.edu">email</a>
             </h5>
+          </Row>
+
+          {/* natcap logo*/}
+          <Row className=" m-1 justify-content-md-center landingSection p-0">
+            <img
+              className="landingSection justify-content-md-center "
+              src={natcapLogo}
+              alt="Logo"
+              width="40%"
+            />
           </Row>
 
           {/*Start exploring button*/}

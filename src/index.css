@@ -19,6 +19,9 @@ body {
 .color-white {
   color: var(--text-color) !important;
 }
+.landingSection a {
+  color: var(--highlight-color) !important;
+}
 #root {
   height: 100%;
 }

@@ -14,13 +14,13 @@ const noProfileImg = require("../static/images/no-profile-img.png");
 let contributors = [
   {
     name: "Charlotte Weil",
-    jobTitle: "Visualization expert",
+    jobTitle: "Interactive Visualization",
     img: require("../static/images/cw.png"), // if none provided the noProfileImg will be used
   },
   {
-    name: "Anna Fredriksson Häägg",
-    jobTitle: "Visualization expert",
-    img: require("../static/images/af1.png"),
+    name: "Anna F. Häägg",
+    jobTitle: "Interactive Visualization",
+    img: require("../static/images/af.png"),
   },
 ];
 
