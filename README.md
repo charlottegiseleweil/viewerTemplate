@@ -14,7 +14,7 @@ You will also see any lint errors in the console.
 All external data such as *shapefiles*, *images*, and *legends* should be placed in their corresponding folders.
 
 #### public/index.html 
-Here you can edit the title of your dashboard
+Here you can edit the title of your dashboard that will appear in the browser tab.
 
 #### src/App.js
 In this file, you can edit the menu links and the name of the viewer. You could also add more tabs by editing the `menuLinks`property.
@@ -28,13 +28,13 @@ Each dashboard must contain the following properties: <br/>
 `charts` An array of all charts, their data and to which section they belong to. 
 
 #### src/components/mapStyling.js
-Here you can add styling functions for your shapefiles -- (optional)
+Here you can add styling functions for your shapefiles and rasters. All colors should be in HEX.
 
 #### src/components/Footer.js
 In this file, you can edit the Footer. If you don't want it you can remove it from `App.js`
 
 #### src/components/AboutPage.js
-In this file, you can edit the content of the about page. In the beginning of the document, there is a variable called `contributors` where you can add all your contributors and their images. 
+In this file, you can edit the content of the about page. In the beginning of the document, there is an array called `contributors` where you can add all your contributors and their images. 
 
 #### src/components/Landing.js
 In this file, you can edit the Landing page. If you don't want it you can remove it from `App.js`
