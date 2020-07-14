@@ -1,4 +1,5 @@
-This is a template for creating your own map-based dashboard
+This is a template for creating your own map-based dashboard <br/>
+*Do you want your dashboard to be deployed on the official [visualization gallery](http://viz.naturalcapitalproject.org/) of the Natural Capital Project? Please send an email to: chweil@stanford.edu and haagg.anna@gmail.com with a link to your repo.*
 
 ## Getting started
 1. (optional) Install [VScode](https://code.visualstudio.com/download) or any other text editor you prefer.
