@@ -36,10 +36,26 @@ function Style() {
       : "#d43c33";
   };
 
+  // example -- rasters
+  const raster = (d) => {
+    let color = null; // no color
+    switch (d) {
+      case 1:
+        color = "#ab1700"; // colors have to be coded in HEX
+        break;
+      case -1:
+        color = "#00ab39";
+        break;
+      default:
+    }
+    return color;
+  };
+
   // This exports an object containing all the styling functions to be used in data.js
   return {
     watersheds: waterSheds,
     AOI: AOI,
+    raster: raster,
   };
 }
 

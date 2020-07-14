@@ -5,6 +5,9 @@ import shp from "shpjs";
 import Legend from "./Legend";
 import Container from "react-bootstrap/Container";
 
+const parse_georaster = require("georaster");
+const GeoRasterLayer = require("georaster-layer-for-leaflet");
+
 let map;
 let layers;
 
@@ -18,20 +21,21 @@ class MainMap extends React.Component {
     layers.clearLayers();
     this.props.selectedDatasets.forEach((id) => {
       let dataset = this.props.datasets[id];
-      if (dataset.type === "shapefile") {
-        shp(require("../data/shapefiles/" + dataset.src)).then(function (
-          geojson
-        ) {
-          //do something with your geojson
-          L.geoJSON(geojson, {
-            style: dataset.style ? dataset.style : {},
-          }).addTo(layers);
-        });
-      }
-      if (dataset.type === "tiles") {
-        L.tileLayer(dataset.src, {
-          attribution: "",
-        }).addTo(layers);
+
+      switch (dataset.type) {
+        case "shapefile":
+          addShapefile(dataset);
+          break;
+
+        case "tiles":
+          addTiles(dataset);
+          break;
+
+        case "raster":
+          addRaster(dataset);
+          break;
+
+        default:
       }
     });
   };
@@ -82,3 +86,39 @@ class MainMap extends React.Component {
 }
 
 export default MainMap;
+
+function addShapefile(dataset) {
+  shp(require("../data/shapefiles/" + dataset.src)).then(function (geojson) {
+    //do something with your geojson
+    L.geoJSON(geojson, {
+      style: dataset.style ? dataset.style : {},
+    }).addTo(layers);
+  });
+}
+
+function addRaster(dataset) {
+  let style = dataset.style
+    ? dataset.style
+    : (d) => {
+        return "#ffffff";
+      };
+  fetch(require("../data/rasters/" + dataset.src))
+    .then((response) => response.arrayBuffer())
+    .then((arrayBuffer) => {
+      parse_georaster(arrayBuffer).then((georaster) => {
+        var layer = new GeoRasterLayer({
+          georaster: georaster,
+          opacity: 0.7,
+          pixelValuesToColorFn: (values) => style(values[0]),
+          resolution: 64, // optional parameter for adjusting display resolution
+        });
+        layer.addTo(layers);
+      });
+    });
+}
+
+function addTiles(dataset) {
+  L.tileLayer(dataset.src, {
+    attribution: "",
+  }).addTo(layers);
+}

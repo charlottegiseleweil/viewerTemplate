@@ -61,9 +61,9 @@ function Data() {
       id -- order in array 
       sectionID -- which section the dataset belongs to
       title -- title of dataset
-      type -- what type of source (choose between shapefile, tiles )
+      type -- what type of source (choose between shapefile, tiles (webhosted) or rasters (tif - must be projected with EPSG:4326)  )
       src -- file name (place the files in the corresponding folders for shapefile .. )
-      style -- custom styles for shapefiles (create them in mapstyling.js and add them here)
+      style -- custom styles for shapefiles and rasters (create them in mapstyling.js and add them here)
       legendSrc -- filename of the lagend (place it in the legend folder)
       selected -- If the dataset should be selected by default
        */
@@ -96,6 +96,16 @@ function Data() {
           src:
             "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_pres/{z}/{x}/{y}.png",
           legendSrc: "exampleLegend4.png",
+          selected: false,
+        },
+        {
+          id: 3,
+          sectionID: 1,
+          title: "Future Dengue Risk",
+          type: "raster",
+          src: "exampleRaster.tif", // must be projected with EPSG:4326
+          style: Style().raster,
+          legendSrc: "exampleLegend2.png",
           selected: false,
         },
       ],

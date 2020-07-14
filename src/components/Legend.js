@@ -21,7 +21,7 @@ class Legend extends React.Component {
             <img
               src={
                 dataset.legendSrc &&
-                require("../static/legends/" + dataset.legendSrc)
+                require("../data/legends/" + dataset.legendSrc)
               }
               alt="legend"
               width="100%"
