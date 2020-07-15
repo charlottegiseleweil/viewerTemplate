@@ -16,35 +16,41 @@ function LandingPage(props) {
           {/* Here you can include the sections you want on your landing page*/}
           <Row className="p-3 m-0 justify-content-md-center">
             <h1 className="text-center font-weight-light m-2 p-0 ">
-              Viewer Template
+              NatCap’s Viewer Template
             </h1>
           </Row>
 
           {/* Project information*/}
           <Row className=" m-0 justify-content-md-center landingSection">
             <h5 className="p-4 font-weight-light ">
-              The viewer template is created to be used by researchers who are
-              non-visualization developers but want to communicate their spatial
-              data as map-layers on a website. The template can through a
-              minimum amount of coding be adjusted to display shapefiles,
-              tilesets, and rasters on maps in addition to summarising data in
-              bar charts. Places to include information about the specific
-              project as well as descriptions and methods for creating the
-              datasets is also be provided. <br />
+              This viewer template is an open-source tool to communicate spatial
+              data interactively. Users can make it their own interactive viewer
+              with a minimum coding: displaying maps as shapefiles, tilesets,
+              and rasters layers, as well as interactive graphs, such as bar
+              charts. <br />
               <br />
               Get started by cloning the codebase in the{" "}
-              <a href="https://github.com/charlottegiseleweil/viewerTemplate">
+              <a
+                href="https://github.com/charlottegiseleweil/viewerTemplate"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Github repo{" "}
               </a>
               or explore our deployed{" "}
-              <a href="http://viz.naturalcapitalproject.org/viewerTempla">
+              <a
+                href="http://viz.naturalcapitalproject.org/viewerTemplate/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 demo-version
               </a>
               .
               <br />
               <br />
-              Questions, comments, or feedback about the viewer? Please send us
-              an <a href="mailto: chweil@stanford.edu">email</a>
+              Please cite us in contributors, and send us your best creations!{" "}
+              <br />
+              /Anna & Charlie!
             </h5>
           </Row>
 
