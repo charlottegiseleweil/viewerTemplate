@@ -50,9 +50,10 @@ function AboutPage(props) {
       </Col>
 
       <Row className="justify-content-center p-4">
-        <Col md={6}>
+        <Col md={7}>
+          {" "}
+          {/* change the size of the main container*/}
           {/* Here you can include the sections you want in your about page*/}
-
           {/* Project information*/}
           <Row className=" justify-content-md-center">
             <h5 className="p-4 font-weight-normal ">
@@ -68,7 +69,6 @@ function AboutPage(props) {
               nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
             </h5>
           </Row>
-
           {/* How to use the viewer */}
           <Row className="p-1 justify-content-md-center">
             <h2 className="text-center font-weight-normal ">
@@ -91,7 +91,33 @@ function AboutPage(props) {
               an <a href="mailto: abc@example.com">email</a>
             </h5>
           </Row>
-
+          {/* example of 2 columns*/}
+          <Row className="p-1 justify-content-md-center">
+            <h2 className="text-center font-weight-normal ">
+              This is an example of 2 columns
+            </h2>
+          </Row>
+          <hr className="hr-about" />
+          <Row className=" justify-content-md-center">
+            <Col md={6} className="p-0">
+              <h5 className="p-4 font-weight-normal ">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                quis, sem. Nulla consequat massa quis enim.
+              </h5>
+            </Col>
+            <Col md={6} className="p-0">
+              <h5 className="p-4 font-weight-normal ">
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+                commodo ligula eget dolor. Aenean massa. Cum sociis natoque
+                penatibus et magnis dis parturient montes, nascetur ridiculus
+                mus. Donec quam felis, ultricies nec, pellentesque eu, pretium
+                quis, sem. Nulla consequat massa quis enim.
+              </h5>
+            </Col>
+          </Row>
           {/* Contributors*/}
           <Row className="p-1 justify-content-md-center">
             <h2 className="text-center font-weight-normal ">Contributors</h2>
