@@ -15,10 +15,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewerTitle: "Your viewer Name",
+      viewerTitle: "viewerTemplate",
       menuLinks: [
         {
-          title: "Dashboard",
+          title: "Explorer",
           path: "/",
           page: <DashboardPage props={Data().dashboard1} />,
         },
