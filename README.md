@@ -14,34 +14,72 @@ You will also see any lint errors in the console.
 ## Adding your own data
 All external data such as *shapefiles*, *images*, and *legends* should be placed in their corresponding folders.
 
-#### public/index.html 
-Here you can edit the title of your dashboard that will appear in the browser tab.
-
-#### src/App.js
-In this file, you can edit the menu links and the name of the viewer. You could also add more tabs by editing the `menuLinks`property.
+#### Implemented data formats
+The template has the functionality to include the following formats of spatial data: <br/>
+- Shapefiles:  saved as a zip and placed in `data/shapefiles`.
+- Rasters: .tif images projected with EPSG:4326 place in `data/rasters`.
+- Tilesets: link to the URL of a tileset needs to be provided in `src/data/data.js`. 
 
 #### src/data/Data.js
-This is where you add links all your data sets and their information. It is constructed as json object where each dashboard (originally just one) has its own properties. <br/>
+This is where you add links to all your datasets and their information. It is constructed as JSON objects where each dashboard (originally just the one called explorer) has its own properties. <br/>
 Each dashboard must contain the following properties: <br/>
 `baseMap` <br/>
 `dataSections` An array of all the data sections <br/>
-`datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. Currently, only shapefiles and tilesets are implemented. <br/>
+`datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. <br/>
 `charts` An array of all charts, their data and to which section they belong to. 
 
 #### src/components/mapStyling.js
 Here you can add styling functions for your shapefiles and rasters. All colors should be in HEX.
 
+## Changing text and appearance 
+
+#### public/index.html 
+Here you can edit the title of your dashboard that will appear in the browser tab.
+
+#### src/App.js
+In this file, you can edit the menu links and the name of the viewer. You could also add more tabs by editing the `menuLinks` property (see section *Adding a new menu tab*)
+
 #### src/components/Footer.js
 In this file, you can edit the Footer. If you don't want it you can remove it from `App.js`
 
 #### src/components/AboutPage.js
-In this file, you can edit the content of the about page. In the beginning of the document, there is an array called `contributors` where you can add all your contributors and their images. 
+In this file, you can edit the content of the about page. At the beginning of the document, there is an array called `contributors` where you can add all your contributors and their images. 
 
 #### src/components/Landing.js
 In this file, you can edit the Landing page. If you don't want it you can remove it from `App.js`
 
 #### src/components/LeftPanel.js
 In this file, you can make custom changes to the left panel 
+
+## Adding a new menu tab (optional)
+1. Creating a new page <br/>
+Go to the pages folder and create a new file e.g. called *NewPage.js* Initialize it with the following code: 
+```
+import React from "react";
+
+function NewPage(props) {
+  return (<div>Place your Html code here</div>);
+}
+
+export default NewPage;
+```
+The return statement in this component will include all Html code you want to display on this page. *props* is a handle to whatever properties you want to link to the component.
+
+2. Make a link in the menu <br/>
+Open `App.js` and start by including the new page in your list of imports. <br/>
+`import NewPage from "./pages/NewPage";` <br/>
+Look at the `menuLink` array and add the following code: 
+```
+{
+          title: "New tab",
+          path: "/newpage",
+          page: <NewPage />,
+},
+```
+The `title` property holds the name you want to be displayed in the menu. The `path` property holds the browser path you want for the new page, and the `page` property holds the Html tag with the new page. <br/> 
+Done!
+
+
 
 ## Deploying the dashboard to GitHub pages
 To do this you need to have a GitHub account
