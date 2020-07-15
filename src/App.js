@@ -20,7 +20,7 @@ class App extends React.Component {
         {
           title: "Explorer",
           path: "/",
-          page: <DashboardPage props={Data().dashboard1} />,
+          page: <DashboardPage props={Data().explorer} />,
         },
         {
           title: "About",

@@ -5,8 +5,8 @@ import Style from "./mapStyling";
 
 function Data() {
   return {
-    //Duplicate if you want several tabs, dahboard1 is imported to the default dashboard tab in the menu.
-    dashboard1: {
+    //explorer contains all data that will be displayed on the explorer tab, dublicate anc change if you want several tabs
+    explorer: {
       baseMap: {
         src:
           "https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png",
