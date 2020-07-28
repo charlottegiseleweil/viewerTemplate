@@ -8,6 +8,14 @@ class BarChart extends React.Component {
     this.state = {};
     this.chart = null;
   }
+  componentDidUpdate() {
+    if (this.props.item.interactive) {
+      this.chart.load({
+        columns: this.props.item.columns,
+        type: "bar",
+      });
+    }
+  }
   componentDidMount() {
     this.chart = c3.generate({
       bindto: "#chart" + this.props.item.chartID,
@@ -28,6 +36,7 @@ class BarChart extends React.Component {
           type: "category",
         },
         y: {
+          max: this.props.item.yMax,
           label: {
             text: this.props.item.yLabel,
             position: "outer-middle",
@@ -41,6 +50,12 @@ class BarChart extends React.Component {
     return (
       <div>
         <h6 className="text-center color-white">{this.props.item.title}</h6>
+        {/*else - display "click on map*/}
+        {this.props.item.columns.length === 0 && (
+          <h6 className="text-center color-white p-1 font-italic">
+            Click on map to display chart
+          </h6>
+        )}
         <div id={"chart" + this.props.item.chartID} className="inverted"></div>
       </div>
     );

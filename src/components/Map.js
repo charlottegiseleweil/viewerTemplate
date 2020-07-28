@@ -11,11 +11,13 @@ const GeoRasterLayer = require("georaster-layer-for-leaflet");
 // variables to hold the main map and all the layers displayed
 let map;
 let layers;
+let updateChart;
 
 class MainMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    updateChart = props.updateChart;
   }
 
   // initialize the map
@@ -93,10 +95,57 @@ export default MainMap;
 
 function addShapefile(dataset) {
   shp(require("../data/shapefiles/" + dataset.src)).then(function (geojson) {
-    //do something with your geojson
-    L.geoJSON(geojson, {
+    let newLayer = L.geoJSON(geojson, {
       style: dataset.style ? dataset.style : {},
-    }).addTo(layers);
+
+      // add point styling
+      pointToLayer: function (feature, latlng) {
+        if (dataset.icon) {
+          // create icon if there is one specified
+          var myIcon = L.icon({
+            iconUrl: require("../static/icons/" + dataset.icon),
+            iconSize: [40, 40],
+            iconAnchor: [16, 37],
+            popupAnchor: [0, -28],
+            tooltipAnchor: [0, -28],
+          });
+          return L.marker(latlng, { icon: myIcon });
+        } else {
+          return L.marker(latlng);
+        }
+      },
+
+      onEachFeature: function (feature, layer) {
+        // if we want to bind the map to a chart
+        if (dataset.chartProperties) {
+          //bind function to click
+          layer.on("click", function (e) {
+            let columns = [["x-label", "Example x "]];
+
+            for (let i = 0; i < dataset.chartProperties.length; i++) {
+              columns.push([
+                dataset.namesOfProperties[i],
+                feature.properties[dataset.chartProperties[i]],
+              ]);
+            }
+            updateChart(columns, dataset.chartID);
+
+            newLayer.setStyle(dataset.style); //resets layer colors
+            layer.setStyle({ fillOpacity: 0.7, fillColor: "#000000" }); //highlights selected.
+          });
+        }
+        // if we want to add a tooltip
+        if (dataset.tooltip) {
+          layer.bindTooltip(dataset.tooltip(feature));
+        }
+
+        // if we want to add a popup on click
+        if (dataset.popup) {
+          layer.bindPopup(dataset.popup(feature));
+        }
+      },
+    });
+    newLayer.addTo(layers);
   });
 }
 

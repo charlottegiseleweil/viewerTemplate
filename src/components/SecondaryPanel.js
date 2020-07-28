@@ -4,21 +4,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { XSquare } from "react-bootstrap-icons";
 
-import BarChart from "./BarChart";
+
 
 function SecondaryPanel(props) {
   const style = useSpring({ opacity: 1, from: { opacity: 0 } });
 
-  // add all charts
-  const makeCharts = () => {
-    return props.charts.map((item) => {
-      return (
-        item.sectionID === props.item.id && (
-          <BarChart key={item.chartID} item={item} />
-        )
-      );
-    });
-  };
 
   // add infotext
   const makeInfotext = () => {
@@ -59,8 +49,6 @@ function SecondaryPanel(props) {
               />
             </h4>
           </Row>
-
-          {makeCharts()}
           {props.item.infotext && makeInfotext()}
         </animated.div>
       </Col>

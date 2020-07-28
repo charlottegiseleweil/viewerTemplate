@@ -30,6 +30,7 @@ class Dashboard extends React.Component {
     };
   }
 
+  // functions to give to child components so they can change the overall state
   updateState = (state) => {
     this.setState({ state });
   };
@@ -42,12 +43,20 @@ class Dashboard extends React.Component {
     this.setState({ datasets: newdata });
   };
 
+  // used for linking shapeiles with charts 
+  updateChartdata = (columns, chartID) =>{
+    let charts = [...this.state.charts];
+    charts[chartID].columns = columns
+    this.setState({ charts: charts});
+  }
+
   closeInfo = () => {
     let statPanel = this.state.SecondaryPanel;
     statPanel.show = false;
     this.setState({ SecondaryPanel: statPanel });
   };
-  componentDidUpdate() {}
+  componentDidUpdate() {
+  }
 
   render() {
     return (
@@ -62,6 +71,7 @@ class Dashboard extends React.Component {
               <LeftPanel
                 sections={this.state.dataSections}
                 datasets={this.state.datasets}
+                charts={this.state.charts}
                 SecondaryPanel={this.state.SecondaryPanel}
                 updateState={this.updateState}
                 updateDatasets={this.updateDatasets}
@@ -75,6 +85,7 @@ class Dashboard extends React.Component {
                 datasets={this.state.datasets}
                 baseMap={this.state.baseMap}
                 selectedDatasets={this.state.selectedDatasets}
+                updateChart= {this.updateChartdata}
               />
             </Col>
           </Row>

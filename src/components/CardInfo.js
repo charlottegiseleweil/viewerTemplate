@@ -2,12 +2,28 @@ import React from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+import { Download } from "react-bootstrap-icons";
+
 function CardInfo(props) {
   return (
-    <Row className="dataSection m-1 dataset">
+    <Row className="dataSection m-1 dataset color-white">
       <Col sm={10} className=" p-0">
-        <h5 className="font-weight-normal">{props.item.title}</h5>
+        <h5 className="font-weight-normal">
+          {props.item.title}
+          &nbsp;&nbsp;&nbsp;
+          {props.item.link && (
+            <a
+              className=" color-white "
+              href={props.item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Download className="hover-highlight" />
+            </a>
+          )}
+        </h5>
       </Col>
+
       <Col sm={1} className="p-0 ">
         <div className="custom-control custom-switch cursor-pointer">
           <input

@@ -44,6 +44,7 @@ class LeftPanel extends React.Component {
           item={item}
           key={item.id}
           datasets={this.props.datasets}
+          charts={this.props.charts}
           click={() => this.showInfo(item.id)}
           expandSection={() => this.expandSection(item.id)}
           toggleDataset={this.toggleDataset}
@@ -54,9 +55,9 @@ class LeftPanel extends React.Component {
 
   render() {
     return (
-      <Container fluid={true} className="p-0 color-white leftbar">
+      <Container fluid={true} className="p-0 leftbar">
         <h1
-          className=" p-2 font-weight-light"
+          className=" p-2 font-weight-light color-white"
           style={{ borderBottom: "3px solid var(--highlight-color)" }}
         >
           Explore

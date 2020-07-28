@@ -4,6 +4,7 @@ import "./App.css";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import { PatchQuestion } from "react-bootstrap-icons";
 
 import Footer from "./components/Footer";
 import DashboardPage from "./pages/DashboardPage";
@@ -74,6 +75,12 @@ class App extends React.Component {
             <Navbar.Brand>{this.state.viewerTitle}</Navbar.Brand>
             <Nav className="ml-auto">
               {this.makeHeaderLinks(this.state.menuLinks)}
+              <h5
+                className="nav-link cursor-pointer"
+                onClick={() => this.setState({ showLandingPage: true })}
+              >
+                <PatchQuestion />
+              </h5>
             </Nav>
           </Navbar>
 
