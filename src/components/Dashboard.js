@@ -43,20 +43,19 @@ class Dashboard extends React.Component {
     this.setState({ datasets: newdata });
   };
 
-  // used for linking shapeiles with charts 
-  updateChartdata = (columns, chartID) =>{
+  // used for linking shapeiles with charts
+  updateChartdata = (columns, chartID) => {
     let charts = [...this.state.charts];
-    charts[chartID].columns = columns
-    this.setState({ charts: charts});
-  }
+    charts[chartID].columns = columns;
+    this.setState({ charts: charts });
+  };
 
   closeInfo = () => {
     let statPanel = this.state.SecondaryPanel;
     statPanel.show = false;
     this.setState({ SecondaryPanel: statPanel });
   };
-  componentDidUpdate() {
-  }
+  componentDidUpdate() {}
 
   render() {
     return (
@@ -66,7 +65,7 @@ class Dashboard extends React.Component {
             <Col
               sm={3}
               className=" p-2 hidden-md-down bg-black"
-              style={{ zIndex: 5000 }}
+              style={{ zIndex: 1020 }}
             >
               <LeftPanel
                 sections={this.state.dataSections}
@@ -85,7 +84,7 @@ class Dashboard extends React.Component {
                 datasets={this.state.datasets}
                 baseMap={this.state.baseMap}
                 selectedDatasets={this.state.selectedDatasets}
-                updateChart= {this.updateChartdata}
+                updateChart={this.updateChartdata}
               />
             </Col>
           </Row>

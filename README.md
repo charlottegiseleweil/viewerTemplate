@@ -1,7 +1,5 @@
 Demo: http://viz.naturalcapitalproject.org/viewerTemplate/
 
-
-
 This is a template for creating your own map-based dashboard <br/>
 _Do you want your dashboard to be deployed on the official [visualization gallery](http://viz.naturalcapitalproject.org/) of the Natural Capital Project? Please send an email to: chweil@stanford.edu and haagg.anna@gmail.com with a link to your repo._
 
@@ -85,7 +83,7 @@ To create an interactive chart add the following properties to the dataset in th
 - namesOfProperties [] -- an array of the names you want to display of each properie (the same name should be used to set colors).
 - chartID -- the ID of the chart the shapefile should be connected to.
   <br/>
-  In the chart make sure that the columns property is empty and that the colors match the name you chose in "namesOfProperties". Add the property `interactive: true`.
+  In the chart make sure that the columns property is empty and that the colors match the name you chose in "namesOfProperties". Add the property `linkedToMap: true`.
 
 ## Adding a new menu tab (optional)
 

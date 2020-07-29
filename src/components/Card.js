@@ -5,6 +5,7 @@ import { ChevronBarUp, ChevronDown, InfoCircle } from "react-bootstrap-icons";
 
 import CardInfo from "../components/CardInfo";
 import BarChart from "./BarChart";
+import LineChart from "./LineChart";
 
 function Card(props) {
   // mini function to add all data sets to the section
@@ -18,7 +19,8 @@ function Card(props) {
           {/*Add interactive chart if there is one */}
           {item.sectionID === props.item.id &&
             item.chartID &&
-            item.selected && <BarChart item={props.charts[item.chartID]} />}
+            item.selected &&
+            displayChart(props.charts[item.chartID])}
         </div>
       );
     });
@@ -27,10 +29,11 @@ function Card(props) {
   // add all charts
   const makeCharts = () => {
     return props.charts.map((item) => {
-      return (
-        item.sectionID === props.item.id &&
-        !item.interactive && <BarChart key={item.chartID} item={item} />
-      );
+      if (item.sectionID === props.item.id && !item.linkedToMap) {
+        return displayChart(item);
+      } else {
+        return "";
+      }
     });
   };
 
@@ -56,12 +59,14 @@ function Card(props) {
           </h5>
         </Col>
         <Col sm={1} className="p-1 cursor-pointer">
-          <h5>
-            <InfoCircle
-              className="hover-highlight"
-              onClick={(e) => props.click(props.item)}
-            />
-          </h5>
+          {props.item.secondaryPanel && (
+            <h5>
+              <InfoCircle
+                className="hover-highlight"
+                onClick={(e) => props.click(props.item)}
+              />
+            </h5>
+          )}
         </Col>
       </Row>
       {/* add bars to the section */}
@@ -73,3 +78,18 @@ function Card(props) {
 }
 
 export default Card;
+
+const displayChart = (chart) => {
+  let out;
+  switch (chart.type) {
+    case "bar":
+      out = <BarChart key={chart.chartID} item={chart} />;
+      break;
+    case "line":
+      out = <LineChart key={chart.chartID} item={chart} />;
+      break;
+    default:
+  }
+
+  return out;
+};

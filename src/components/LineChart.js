@@ -2,7 +2,7 @@ import React from "react";
 import "c3/c3.css";
 const c3 = require("c3");
 
-class BarChart extends React.Component {
+class LineChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -12,7 +12,7 @@ class BarChart extends React.Component {
     if (this.props.item.linkedToMap) {
       this.chart.load({
         columns: this.props.item.columns,
-        type: "bar",
+        type: "line",
       });
     }
   }
@@ -27,7 +27,7 @@ class BarChart extends React.Component {
       },
       data: {
         columns: this.props.item.columns,
-        type: "bar",
+        type: "line",
         x: "x-label",
         colors: this.props.item.colors,
       },
@@ -62,4 +62,4 @@ class BarChart extends React.Component {
   }
 }
 
-export default BarChart;
+export default LineChart;

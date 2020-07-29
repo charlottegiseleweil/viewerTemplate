@@ -104,7 +104,7 @@ function addShapefile(dataset) {
           // create icon if there is one specified
           var myIcon = L.icon({
             iconUrl: require("../static/icons/" + dataset.icon),
-            iconSize: [40, 40],
+            iconSize: [35, 35],
             iconAnchor: [16, 37],
             popupAnchor: [0, -28],
             tooltipAnchor: [0, -28],

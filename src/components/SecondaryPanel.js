@@ -3,12 +3,10 @@ import { useSpring, animated } from "react-spring";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { XSquare } from "react-bootstrap-icons";
-
-
+import ModalImage from "react-modal-image";
 
 function SecondaryPanel(props) {
   const style = useSpring({ opacity: 1, from: { opacity: 0 } });
-
 
   // add infotext
   const makeInfotext = () => {
@@ -50,6 +48,17 @@ function SecondaryPanel(props) {
             </h4>
           </Row>
           {props.item.infotext && makeInfotext()}
+          {props.item.img && (
+            <Row>
+              <ModalImage
+                className="p-3"
+                small={require("../static/images/" + props.item.img)}
+                large={require("../static/images/" + props.item.img)}
+                hideZoom={true}
+              />
+              ;
+            </Row>
+          )}
         </animated.div>
       </Col>
     </Row>

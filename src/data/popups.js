@@ -8,7 +8,7 @@ function Popup() {
       feature.properties.name +
       "<br> Area: " +
       feature.properties.area +
-      " &#13217; <br> <a target='_blank' rel='noopener noreferrer'href='" +
+      " k&#13217; <br> <a target='_blank' rel='noopener noreferrer'href='" +
       feature.properties.link +
       "' > More info</a>"
     );

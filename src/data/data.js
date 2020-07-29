@@ -7,7 +7,7 @@ import Popup from "./popups";
 
 function Data() {
   return {
-    //explorer contains all data that will be displayed on the explorer tab, dublicate anc change if you want several tabs
+    //explorer contains all data that will be displayed on the explorer tab
     explorer: {
       baseMap: {
         src:
@@ -21,13 +21,17 @@ function Data() {
       Each datasection include:
       id -- order in array 
       title -- title of section
-      infotext -- text that will be diplayed in statistics bar divided into paragraphs
-      expanded -- if the secion is expanded or collapsed by default
+      secondaryPanel -- include secondary panel (true or false)
+      infotext -- text that will be diplayed in the secondary panel (optional)
+      img -- image for secondary panel (optional) should be saved in static/images/
+      expanded -- if the secion is expanded or collapsed by default (true or false)
+      
        */
       dataSections: [
         {
           id: 0,
-          title: "Shapefiles",
+          title: "First data section",
+          secondaryPanel: true,
           infotext: [
             {
               subtitle: "Description",
@@ -40,30 +44,27 @@ function Data() {
                 "Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aenean commodo ligula eget dolor.Aenean massa. Cum sociis natoque penatibus et magnis disparturient montes, nascetur ridiculus mus.",
             },
           ],
-          expanded: true,
+          img: "natcap.png",
+          expanded: false,
         },
         {
           id: 1,
-          title: "Rasters and tilesets",
-          infotext: [
-            {
-              subtitle: "Description",
-              text: "This section include a tileset as well as a raster (tif).",
-            },
-          ],
+          title: "Second data section",
+          secondaryPanel: false,
           expanded: false,
         },
         {
           id: 2,
-          title: "Interactive chart",
+          title: "Third data section",
+          secondaryPanel: true,
           infotext: [
             {
               subtitle: "Description",
               text:
-                "This section has an interactive chart connected to the shapefile. Read about details for this in the readme.",
+                "This section has an linked chart connected to the shapefile. Read about details for this in the readme.",
             },
           ],
-          expanded: false,
+          expanded: true,
         },
       ],
       /*
@@ -90,30 +91,30 @@ function Data() {
         {
           id: 0,
           sectionID: 0,
-          title: "Region of interest",
+          title: "Simple shapefile",
           type: "shapefile",
           src: "AOI.zip",
           style: Style().redOutline,
           legendSrc: "exampleLegend3.png",
-          selected: true,
+          selected: false,
           link: "https://en.wikipedia.org/wiki/Region_of_interest",
         },
         {
           id: 1,
           sectionID: 0,
-          title: "National Parks",
+          title: "Pointmap",
           type: "shapefile",
           src: "nationalParks.zip",
           legendSrc: "nationalParksLegend.png",
-          selected: true,
-          icon: "nationalPark.svg",
+          selected: false,
+          icon: "forest.svg",
           tooltip: Tooltip().nameTooltip,
           popup: Popup().examplePopup,
         },
         {
           id: 2,
           sectionID: 1,
-          title: "Dengue Risk",
+          title: "Tileset",
           type: "tiles",
           src:
             "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_pres/{z}/{x}/{y}.png",
@@ -123,7 +124,7 @@ function Data() {
         {
           id: 3,
           sectionID: 1,
-          title: "Future Dengue Risk",
+          title: "Raster",
           type: "raster",
           src: "exampleRaster.tif", // must be projected with EPSG:4326
           style: Style().greenAndRedRaster,
@@ -134,12 +135,12 @@ function Data() {
         {
           id: 4,
           sectionID: 2,
-          title: "Watershed indicies",
+          title: "Styled shapefile",
           type: "shapefile",
           src: "Watersheds.zip",
           style: Style().redToBlue,
           legendSrc: "exampleLegend1.png",
-          selected: false,
+          selected: true,
           chartProperties: ["L_ann", "Qf_ann", "Qb_ann"], // properties from the shapefile to display on the chart
           namesOfProperties: ["Property1", "Property2", "Property3"], // Names of the properties (use the same names in the chart for the colors)
           chartID: 1, // link to corresponding chartID
@@ -153,10 +154,11 @@ function Data() {
       chartID -- order in array
       columns -- data for the chart - the first row includes the x-labels
       colors -- colors for the data 
-      interactive -- true or false*/
+      type -- line or bar
+      linkedToMap -- true or false*/
       charts: [
         {
-          title: "Example Chart 1",
+          title: "Example Line chart",
           yLabel: "Example y Label",
           sectionID: 1,
           chartID: 0,
@@ -172,11 +174,12 @@ function Data() {
             "Data-2": "#ffd633",
             "Data-3": "#009933",
           },
+          type: "line",
         },
 
         // Example of a chart linked to a shapefile
         {
-          interactive: true,
+          linkedToMap: true,
           title: "Chart linked to map",
           yLabel: "Example y Label",
           sectionID: 2,
@@ -188,6 +191,7 @@ function Data() {
             Property2: "#EAC7CB",
             Property3: "E67F8B",
           },
+          type: "bar",
           yMax: 2500, // optional max value on axis
         },
       ],
