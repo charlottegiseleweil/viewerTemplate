@@ -1,9 +1,10 @@
 Demo: http://viz.naturalcapitalproject.org/viewerTemplate/
 
 This is a template for creating your own map-based dashboard <br/>
-_Do you want your dashboard to be deployed on the official [visualization gallery](http://viz.naturalcapitalproject.org/) of the Natural Capital Project? [Email us](mailto:chweil@stanford.edu) a link to your repo.
 
-## Getting started
+You will find here detailed information to use the viewerTemplate.
+
+# Set up
 
 1. Install [node.js](https://nodejs.org/en/download/), and a text editor (e.g  [VScode](https://code.visualstudio.com/download) )
 3. Download or clone this repository and open the project directory in your text editor
@@ -14,82 +15,31 @@ _Do you want your dashboard to be deployed on the official [visualization galler
    You will also see any errors in the console. <br />
    *The browser might open http://localhost:3000/viewerTemplate by default, the "viewerTemplate" part of the link will be removed once you follow the steps in "Deploying the dashboard to GitHub pages"*
    
+# Customize viewer 
+   
 ## Setting up the basemap and configurations 
-Go to src/data/data.js <br/>
-1. In the top of the file, there is a short config section where you can decide e.g. if you want the datasets to be downloadable or if you want to toggle the landing page
-2. Underneath you find the settings for the base map 
+In `src/data/data.js`, there is a short config section to set the map parameters (initial location, zoom level, basemap) and choose whether or not to have infoButtons (that open a secundaryPanel with more text), download icons, etc for the map layers. The `chartIsLinkedTo` parameter specifiies the map layer to which the chart is linked (set datasetID), set to `null` if the chart should not be linked to the map (and then set chart data directly in the chart section). See also [CHART SECTION AAAAAAAA]()
 
-## Adding your own data
 
-All external data such as _shapefiles_, _images_, and _legends_ should be placed in their corresponding folders.
+## Edit texts
 
-#### Implemented data formats
+#### Menu tab
+In `src/App.js`, edit the menu links and the name of the viewer. You could also add more tabs by editing the `menuLinks` property (see section _Add a new menu tab_)
 
-The template has the functionality to include the following formats of spatial data: <br/>
+#### Left panel
+ In `src/components/LeftPanel.js`, you can make custom changes to the left panel - e.g changing the header *Explorer*.
 
-- Shapefiles: saved as a zip and placed in `data/shapefiles`.
-- Rasters: .tif images projected with EPSG:4326 place in `data/rasters`.
-- Tilesets: link to the URL of a tileset needs to be provided in `src/data/data.js`.
+#### About tab
+In `src/components/AboutPage.js`, edit contents of the *About* tab. The array `contributors` can be updated with images (and yes, you can remove our faces, but yes, we’d be offended;)
 
-#### src/data/data.js
+#### Welcome window 
+In `src/components/Landing.js`, edit the welcome window (landing page). This window can be removed in AAAAAAAAAAA.
 
-This is where you add links to all your datasets and their information. It is constructed as JSON objects where each dashboard (originally just the one called explorer) has its own properties. <br/>
-Each dashboard must contain the following properties: <br/>
-`baseMap` <br/>
-`dataSections` An array of all the data sections <br/>
-`datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. <br/>
-`chart` The chart to be displayed in the bottom of the left panel. To create a linked chart see "Creating linked charts"
+#### Footer & Title
+In `public/index.html`, edit the title of the viewer (appears in browsers). Edit footer in `src/components/Footer.js`, or remove it in `App.js`
 
-#### src/data/mapStyling.js
 
-Here you can add styling functions for your shapefiles and rasters. All colors should be in HEX.
-
-#### src/data/tooltips.js - only for shapefiles
-
-Here you can add what properties you want the optional tooltips to display.
-
-#### src/data/popups.js - only for shapefiles
-
-Here you can add what properties you want the optional popups to display.
-
-## Changing text and appearance
-
-#### public/index.html
-
-Here you can edit the title of your dashboard that will appear in the browser tab.
-
-#### src/App.js
-
-In this file, you can edit the menu links and the name of the viewer. You could also add more tabs by editing the `menuLinks` property (see section _Adding a new menu tab_)
-
-#### src/components/Footer.js
-
-In this file, you can edit the Footer. If you don't want it you can remove it from `App.js`
-
-#### src/components/AboutPage.js
-
-In this file, you can edit the content of the about page. At the beginning of the document, there is an array called `contributors` where you can add all your contributors and their images.
-
-#### src/components/Landing.js
-
-In this file, you can edit the Landing page. If you don't want it you can remove it from `data.js`
-
-#### src/components/LeftPanel.js
-
-In this file, you can make custom changes to the left panel - like changing the header "Explorer"
-
-## Linked charts - advanced users.
-
-Linked charts can only be connected to shapefiles.
-1. Set `chartIsLinkedTo: {datasetId}` in the configuration in `data.js`
-2. Add the following properties to the dataset in the list of all datasets (see data.js). <br/>
-
-- chartProperties []-- an array of the names of the properties from the shapefile to be displayed on the chart.
-- namesOfProperties [] -- an array of the names you want to display of each properie (the same name should be used to set colors).
-  <br/>
-  In the chart object make sure that the columns property is empty and that the colors match the name you chose in "namesOfProperties". 
-
-## Adding a new menu tab (optional)
+## Add a new menu tab
 
 1. Creating a new page <br/>
    Go to the pages folder and create a new file e.g. called _NewPage.js_ Initialize it with the following code:
@@ -122,10 +72,79 @@ The return statement in this component will include all JSX code you want to dis
 The `title` property holds the name you want to be displayed in the menu. The `path` property holds the browser path you want for the new page, and the `page` property holds the Html tag with the new page. <br/>
 Done!
 
-## Deploying the dashboard to GitHub pages
+# Add data
 
-1. On github, create a new Github repository (you need to have a GitHub account)
-2. In the `package.json` file, change the `homepage`property to `http://{username}.github.io/{repository-name}`. (e.g `"homepage": "http://myusername.github.io/myviewer"`)
+All external data such as _shapefiles_, _rasters_, _images_, and _legends_ should be placed in their corresponding folders. This viewer supports spatial data in the following formats:
+
+- Shapefiles: saved as a zip and placed in `data/shapefiles`. 
+- Rasters: .tif images projected with EPSG:4326 placed in `data/rasters`.
+- Tilesets: link to the URL of a tileset needs to be provided in `src/data/data.js`.
+
+## Files organisation
+
+#### src/data/data.js
+
+This is where you add links to all your datasets and their information. It is constructed as JSON objects where each dashboard (originally just the one called explorer) has its own properties. <br/>
+Each dashboard must contain the following properties: <br/>
+`baseMap` <br/>
+`dataSections` An array of all the data sections <br/>
+`datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. <br/>
+`chart` The chart to be displayed in the bottom of the left panel. To create a linked chart see "Creating linked charts"
+
+#### src/data/mapStyling.js
+
+Here you can add styling functions for your shapefiles and rasters. All colors should be in HEX.
+
+#### src/data/tooltips.js & popups.js 
+
+Optionally, you can configure (for shapefiles only): 
+
+- tooltips (appear when hovering over the map) 
+- popUps (appear when clicking on a map feature)
+
+## Display shapefiles
+
+[[[ AAAAA   Add here a step-by-step workflow (add layer  style it..)]]] 
+
+## Display rasters
+[[[ AAAAA   Add here a step-by-step workflow (add layer  style it..)]]] 
+
+
+If your raster takes too long to display online (check once viewer is deployed), the alternative is to serve it as tiles, it's a little more complicated, but do-able! See next section:
+
+## Build and display tilesets
+
+[[[ AAAA Also to do ]]]]]
+
+## Build an interactive chart
+### Option 1: Chart is not linked to maps
+[[[ AAAAA   Add here a step-by-step workflow ]]] 
+
+### Option 2: Chart linked to map, linking to a shapefile layer
+[[[ AAAAA   Add here a step-by-step workflow (add layer  style it..)]]] 
+
+1. Set `chartIsLinkedTo: {datasetId}` in the configuration in `data.js`
+2. Add the following properties to the dataset in the list of all datasets (see data.js). <br/>
+
+- chartProperties []-- an array of the names of the properties from the shapefile to be displayed on the chart.
+- namesOfProperties [] -- an array of the names you want to display of each properie (the same name should be used to set colors).
+  <br/>
+  In the chart object make sure that the columns property is empty and that the colors match the name you chose in "namesOfProperties". 
+
+### Option 3: Chart linked to map, linking to a raster layer
+
+[[[ TO DO CHARLIE, GEE + Link to Add a new menu tab. ]]]
+
+
+
+
+
+
+
+# Deploy viewer online
+
+1. On github, create a new Github repository (you need to have a GitHub account). We'll deploy the viewer with GitHub pages.
+2. In the `package.json` file, change the `homepage` property to `http://{username}.github.io/{repository-name}`. (e.g `"homepage": "http://myusername.github.io/myviewer"`)
 3. In command line (Open your terminal/git bash and navigate to your project folder), initialize your repo and link it: <br/>
    Open your terminal/git bash and navigate to your project folder<br/>
    ```git init
@@ -138,7 +157,9 @@ git add *
 git commit -m "Your commit message"
 git push origin master
 ```
-6. To have your viewer hosted on `viz.naturalcapitalproject.stanford.edu/{your-viewer}`, and featured in our visualization gallery, [email us](mailto:chweil@stanford.edu), including the link to your viewer.
+*To have your viewer hosted on `viz.naturalcapitalproject.stanford.edu/{your-viewer}`, and featured in our visualization gallery, [email us](mailto:chweil@stanford.edu), including the link to your viewer.*
+
+# Resources
 
 ## Advanced Scripts
 
@@ -169,7 +190,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## More
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 To learn more about how to deploy a React app on Github pages, check out [this](https://dev.to/yuribenjamin/how-to-deploy-react-app-in-github-pages-2a1f)
