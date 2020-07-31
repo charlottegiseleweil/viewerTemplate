@@ -19,7 +19,6 @@ Go to src/data/data.js <br/>
 1. In the top of the file, there is a short config section where you can decide e.g. if you want the datasets to be downloadable or if you want to toggle the landing page
 2. Underneath you find the settings for the base map 
 
-
 ## Adding your own data
 
 All external data such as _shapefiles_, _images_, and _legends_ should be placed in their corresponding folders.
@@ -99,13 +98,13 @@ Linked charts can only be connected to shapefiles.
 import React from "react";
 
 function NewPage(props) {
-  return (<div>Place your Html code here</div>);
+  return (<div>Place your JSX code here</div>);
 }
 
 export default NewPage;
 ```
 
-The return statement in this component will include all Html code you want to display on this page. _props_ is a handle to whatever properties you want to link to the component.
+The return statement in this component will include all JSX code you want to display on this page ([JSX](https://reactjs.org/docs/introducing-jsx.html) is very similar to HTML). _props_ is a handle to whatever properties you want to link to the component.
 
 2. Make a link in the menu <br/>
    Open `App.js` and start by including the new page in your list of imports. <br/>
