@@ -17,7 +17,7 @@ You will find here detailed information to use the viewerTemplate.
    
 # Customize viewer 
    
-## Setting up the basemap and configurations 
+## Configure basemap and parameters
 In `src/data/data.js`, there is a short config section to set the map parameters (initial location, zoom level, basemap) and choose whether or not to have infoButtons (that open a secundaryPanel with more text), download icons, etc for the map layers. The `chartIsLinkedTo` parameter specifiies the map layer to which the chart is linked (set datasetID), set to `null` if the chart should not be linked to the map (and then set chart data directly in the chart section). See also [CHART SECTION AAAAAAAA]()
 
 
