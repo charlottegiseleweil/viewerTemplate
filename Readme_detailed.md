@@ -308,14 +308,7 @@ colors: {
 ```
 
 ### Option 3: Chart linked to map, linking to a raster layer
-
-[[[ TO DO CHARLIE, GEE + Link to Add a new menu tab. ]]]
-
-
-
-
-
-
+Sorry, this is not implemented (yet), but you can do this with Google Earth Engine fairly easily, and include it as a new tab!
 
 # Deploy viewer online
 
@@ -335,25 +328,21 @@ git push origin master
 ```
 *To have your viewer hosted on `viz.naturalcapitalproject.stanford.edu/{your-viewer}`, and featured in our visualization gallery, [email us](mailto:chweil@stanford.edu), including the link to your viewer.*
 
+----> To update the viewer when changes made: `npm run deploy`
+
 # Resources
 
 ## Advanced Scripts
 
 In the project directory, you can run:
 
-#### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
+`npm test` launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
+`npm run build` builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
-
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 #### `npm run eject`
