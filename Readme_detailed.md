@@ -293,11 +293,19 @@ Locate the datasets array in src/data/data.js and add the following code:
 ### Option 2: Chart linked to map, linking to a shapefile layer
 1. Set `chartIsLinkedTo: {datasetId}` in the configuration in `data.js`
 2. Add the following properties to the dataset (has to be a shapefile) the chart should be linked to. <br/>
-
-- chartProperties []-- an array of the names of the properties from the shapefile to be displayed on the chart.
-- namesOfProperties [] -- an array of the names you want to display of each properie (the same name should be used to set colors).
-  <br/>
-3. In the chart object in the bottom of data.js, set the columns property to `columns: []` and make sure that the colors match the name you chose in "namesOfProperties". 
+```
+chartProperties: ["xxx","yyy","zzz"] // An array of the names of the properties from the shapefile to be displayed on the chart.
+namesOfProperties: ["name1","name2","name3"] // An array of the names you want to display of each properie (the same name should be used to set colors).
+```
+3. In the chart object in the bottom of data.js, set the columns property to `columns: []` and make sure that the colors match the name you chose in "namesOfProperties":
+```
+colors: {
+          // same name as stated in the namesOfProperties
+          "name1": "#66383D",
+          "name2": "#EAC7CB",
+          "name3": "E67F8B",
+        },
+```
 
 ### Option 3: Chart linked to map, linking to a raster layer
 
