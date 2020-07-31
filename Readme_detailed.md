@@ -18,7 +18,7 @@ You will find here detailed information to use the viewerTemplate.
 # Customize viewer 
    
 ## Configure basemap and parameters
-In `src/data/data.js`, there is a short config section to set the map parameters (initial location, zoom level, basemap) and choose whether or not to have infoButtons (that open a secundaryPanel with more text), download icons, etc for the map layers. The `chartIsLinkedTo` parameter specifiies the map layer to which the chart is linked (set datasetID), set to `null` if the chart should not be linked to the map (and then set chart data directly in the chart section). See also [CHART SECTION AAAAAAAA]()
+In `src/data/data.js`, there is a short config section to set the map parameters (initial location, zoom level, basemap) and choose whether or not to have infoButtons (that open a secundaryPanel with more text), download icons, etc for the map layers. The `chartIsLinkedTo` parameter specifiies the map layer to which the chart is linked (set datasetID), set to `null` if the chart should not be linked to the map (and then set chart data directly in the chart section). See also [workflow to make a chart](https://github.com/charlottegiseleweil/viewerTemplate/blob/master/Readme_detailed.md#build-an-interactive-chart).
 
 
 ## Edit texts
@@ -33,10 +33,10 @@ In `src/App.js`, edit the menu links and the name of the viewer. You could also 
 In `src/components/AboutPage.js`, edit contents of the *About* tab. The array `contributors` can be updated with images (and yes, you can remove our faces, but yes, we’d be offended;)
 
 #### Welcome window 
-In `src/components/Landing.js`, edit the welcome window (landing page). This window can be removed in AAAAAAAAAAA.
+In `src/components/Landing.js`, edit the welcome window (landing page). This window can be removed in the configuration section (top of `src/data/data.js`)
 
 #### Footer & Title
-In `public/index.html`, edit the title of the viewer (appears in browsers). Edit footer in `src/components/Footer.js`, or remove it in `App.js`
+In `public/index.html`, edit the title of the viewer (appears in browsers). Edit footer in `src/components/Footer.js`, or remove it in `src/App.js`
 
 
 ## Add a new menu tab
@@ -113,8 +113,30 @@ Optionally, you can configure (for shapefiles only):
 If your raster takes too long to display online (check once viewer is deployed), the alternative is to serve it as tiles, it's a little more complicated, but do-able! See next section:
 
 ## Build and display tilesets
+### Build tiles manually (requires Python & GDAL installed)
+1. Make colorscale 
+From QGIS or ArcGIS, you can export a .qml colorscale, and use**qml\_to\_colortxt.py** to convert to a .txt file in the right format.
+```
+cd utils/build_tiles
+python qml\_to\_colortxt.py --qml color.qml --txt color.txt
+```
+2. Color your raster `{raster.tif}` with this colorscale
+```
+ gdaldem color-relief raster.tif color.txt temp/colored_raster.tif 
+```
+3. Build tiles (this can be time consuming with large rasters)
+```
+python gdal2tilesXYZ.py -v -x -e -z 3-13 -r near temp/colored_raster.tif tileset_Folder
+```
+### Host/serve tilesets
+1. Make a new github repository for tilesets, and add your new tileset. ([Mine](https://github.com/charlottegiseleweil/tiles), as an example)
+2. Publish it as Github Pages (Github Repository> Settings>Options>GitHub Pages. Choose "master branch" as source). It will take a couple minutes to publish.
 
-[[[ AAAA Also to do ]]]]]
+### Add tiles layer link
+The URL to your tileset is: `https://{username}.github.io/{tiles-repository-name}/{tileset-folder-name}/{x}/{y}/{z}` (leave {x}/{y}/{z} exactly as is).
+
+[[[ AAAAA Anna? --> Where exactly to add? ]]]
+
 
 ## Build an interactive chart
 ### Option 1: Chart is not linked to maps
