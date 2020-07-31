@@ -212,13 +212,10 @@ function Data() {
 
 
 
-      
+
       /* Example of a non linked chart
-          
           title: "Example Line chart",
           yLabel: "Example y Label",
-          sectionID: 1,
-          chartID: 0,
           columns: [
             ["x-label", "Label-1", "Label-2", "Label-3"],
 
