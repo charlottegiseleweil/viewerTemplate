@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 
 import Card from "./Card";
+import BarChart from "./BarChart";
+import LineChart from "./LineChart";
 
 class LeftPanel extends React.Component {
   // given an section id, this function displays the secondary panel with that id
@@ -44,7 +46,8 @@ class LeftPanel extends React.Component {
           item={item}
           key={item.id}
           datasets={this.props.datasets}
-          charts={this.props.charts}
+          showInfoButton={this.props.config.showInfoButton}
+          showDownloadButton={this.props.config.showDownloadButton}
           click={() => this.showInfo(item.id)}
           expandSection={() => this.expandSection(item.id)}
           toggleDataset={this.toggleDataset}
@@ -52,8 +55,35 @@ class LeftPanel extends React.Component {
       );
     });
   };
+  makeChart = () => {
+    let out;
+    switch (this.props.chart.type) {
+      case "bar":
+        out = (
+          <BarChart
+            item={this.props.chart}
+            isLinked={this.props.config.chartIsLinkedTo}
+          />
+        );
+        break;
+      case "line":
+        out = (
+          <LineChart
+            item={this.props.chart}
+            isLinked={this.props.config.chartIsLinkedTo}
+          />
+        );
+        break;
+      default:
+    }
+    return out;
+  };
 
   render() {
+    let linkedChart = this.props.config.chartIsLinkedTo;
+    let displayChart = linkedChart
+      ? this.props.datasets[linkedChart].selected
+      : this.props.chart;
     return (
       <Container fluid={true} className="p-0 leftbar">
         <h1
@@ -63,6 +93,10 @@ class LeftPanel extends React.Component {
           Explore
         </h1>
         <Col className="p-0">{this.makeCards(this.props.sections)}</Col>
+
+        {displayChart && (
+          <div className="dataSection p-2 m-1">{this.makeChart()}</div>
+        )}
       </Container>
     );
   }

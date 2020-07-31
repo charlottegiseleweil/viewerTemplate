@@ -18,10 +18,11 @@ class Dashboard extends React.Component {
     });
 
     this.state = {
+      config: props.data.config,
       baseMap: props.data.baseMap,
       dataSections: props.data.dataSections,
       datasets: props.data.datasets,
-      charts: props.data.charts,
+      chart: props.data.chart,
       SecondaryPanel: {
         show: false,
         id: 0,
@@ -44,10 +45,10 @@ class Dashboard extends React.Component {
   };
 
   // used for linking shapeiles with charts
-  updateChartdata = (columns, chartID) => {
-    let charts = [...this.state.charts];
-    charts[chartID].columns = columns;
-    this.setState({ charts: charts });
+  updateChartdata = (columns) => {
+    let chart = this.state.chart;
+    chart.columns = columns;
+    this.setState({ chart: chart });
   };
 
   closeInfo = () => {
@@ -61,16 +62,13 @@ class Dashboard extends React.Component {
     return (
       <div className="position-relative dashboard-container h-80">
         <Container fluid={true} className="">
-          <Row className="p-0 justify-content-center h-80">
-            <Col
-              sm={3}
-              className=" p-2 hidden-md-down bg-black"
-              style={{ zIndex: 1020 }}
-            >
+          <Row className="p-0 h-80">
+            <Col sm={3} className=" p-2 bg-black">
               <LeftPanel
+                config={this.state.config}
                 sections={this.state.dataSections}
                 datasets={this.state.datasets}
-                charts={this.state.charts}
+                chart={this.state.chart}
                 SecondaryPanel={this.state.SecondaryPanel}
                 updateState={this.updateState}
                 updateDatasets={this.updateDatasets}
@@ -78,25 +76,30 @@ class Dashboard extends React.Component {
                 selectedDatasets={this.state.selectedDatasets}
               />
             </Col>
-            <Col sm={9} className="p-0">
+            {this.state.SecondaryPanel.show && (
+              <Col
+                sm={3}
+                className=" p-0 hidden-md-down bg-black "
+                style={{ zIndex: "2" }}
+              >
+                <SecondaryPanel
+                  item={this.state.dataSections[this.state.SecondaryPanel.id]}
+                  charts={this.state.charts}
+                  closeInfo={this.closeInfo}
+                />
+              </Col>
+            )}
+            <Col sm={9} className="p-0 fixing">
               <Map
                 dataSections={this.state.dataSections}
                 datasets={this.state.datasets}
                 baseMap={this.state.baseMap}
                 selectedDatasets={this.state.selectedDatasets}
                 updateChart={this.updateChartdata}
+                chartIsLinked={this.state.config.chartIsLinkedTo}
               />
             </Col>
           </Row>
-        </Container>
-        <Container fluid={true} className="position-absolute fixed-top">
-          {this.state.SecondaryPanel.show && (
-            <SecondaryPanel
-              item={this.state.dataSections[this.state.SecondaryPanel.id]}
-              charts={this.state.charts}
-              closeInfo={this.closeInfo}
-            />
-          )}
         </Container>
       </div>
     );

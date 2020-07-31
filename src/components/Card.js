@@ -4,8 +4,6 @@ import Row from "react-bootstrap/Row";
 import { ChevronBarUp, ChevronDown, InfoCircle } from "react-bootstrap-icons";
 
 import CardInfo from "../components/CardInfo";
-import BarChart from "./BarChart";
-import LineChart from "./LineChart";
 
 function Card(props) {
   // mini function to add all data sets to the section
@@ -14,26 +12,14 @@ function Card(props) {
       return (
         <div key={item.id}>
           {item.sectionID === props.item.id && (
-            <CardInfo item={item} toggleDataset={props.toggleDataset} />
+            <CardInfo
+              item={item}
+              toggleDataset={props.toggleDataset}
+              showDownloadButton={props.showDownloadButton}
+            />
           )}
-          {/*Add interactive chart if there is one */}
-          {item.sectionID === props.item.id &&
-            item.chartID &&
-            item.selected &&
-            displayChart(props.charts[item.chartID])}
         </div>
       );
-    });
-  };
-
-  // add all charts
-  const makeCharts = () => {
-    return props.charts.map((item) => {
-      if (item.sectionID === props.item.id && !item.linkedToMap) {
-        return displayChart(item);
-      } else {
-        return "";
-      }
     });
   };
 
@@ -59,7 +45,7 @@ function Card(props) {
           </h5>
         </Col>
         <Col sm={1} className="p-1 cursor-pointer">
-          {props.item.secondaryPanel && (
+          {props.showInfoButton && (
             <h5>
               <InfoCircle
                 className="hover-highlight"
@@ -69,8 +55,6 @@ function Card(props) {
           )}
         </Col>
       </Row>
-      {/* add bars to the section */}
-      {props.item.expanded && makeCharts()}
       {/* Add all data sets to the section*/}
       {props.item.expanded && makeCardInfo()}
     </div>
@@ -78,18 +62,3 @@ function Card(props) {
 }
 
 export default Card;
-
-const displayChart = (chart) => {
-  let out;
-  switch (chart.type) {
-    case "bar":
-      out = <BarChart key={chart.chartID} item={chart} />;
-      break;
-    case "line":
-      out = <LineChart key={chart.chartID} item={chart} />;
-      break;
-    default:
-  }
-
-  return out;
-};

@@ -153,3 +153,7 @@ text.c3-axis-y-label {
 .hover-opacity:hover {
   background-color: var(--dark-highlight-color);
 }
+.fixing {
+  position: fixed !important;
+  right: 0;
+}

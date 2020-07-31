@@ -9,7 +9,7 @@ class BarChart extends React.Component {
     this.chart = null;
   }
   componentDidUpdate() {
-    if (this.props.item.linkedToMap) {
+    if (this.props.isLinked) {
       this.chart.load({
         columns: this.props.item.columns,
         type: "bar",

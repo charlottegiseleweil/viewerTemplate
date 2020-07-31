@@ -7,8 +7,13 @@ import Popup from "./popups";
 
 function Data() {
   return {
-    //explorer contains all data that will be displayed on the explorer tab
     explorer: {
+      config: {
+        showInfoButton: true, // show more information for all data sections
+        showDownloadButton: true, // show download button if there is a link to the dataset
+        chartIsLinkedTo: 4, // the datasetID the chart should be linked to, if no linking write chartIsLinkedTo: null
+      },
+
       baseMap: {
         src:
           "https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png",
@@ -21,9 +26,10 @@ function Data() {
       Each datasection include:
       id -- order in array 
       title -- title of section
-      secondaryPanel -- include secondary panel (true or false)
-      infotext -- text that will be diplayed in the secondary panel (optional)
+      
+      infotext -- text that will be diplayed in the secondary panel if showInfoButton: true
       img -- image for secondary panel (optional) should be saved in static/images/
+
       expanded -- if the secion is expanded or collapsed by default (true or false)
       
        */
@@ -31,7 +37,6 @@ function Data() {
         {
           id: 0,
           title: "First data section",
-          secondaryPanel: true,
           infotext: [
             {
               subtitle: "Description",
@@ -50,13 +55,17 @@ function Data() {
         {
           id: 1,
           title: "Second data section",
-          secondaryPanel: false,
+          infotext: [
+            {
+              subtitle: "Description",
+              text: "This section includes rasters",
+            },
+          ],
           expanded: false,
         },
         {
           id: 2,
           title: "Third data section",
-          secondaryPanel: true,
           infotext: [
             {
               subtitle: "Description",
@@ -74,18 +83,20 @@ function Data() {
       title -- title of dataset
       type -- what type of source (choose between shapefile, tiles (webhosted) or rasters (tif - must be projected with EPSG:4326)  )
       src -- file name (place the files in the corresponding folders for shapefile .. )
-      style -- custom styles for shapefiles and rasters (create them in mapstyling.js and add them here)
       legendSrc -- filename of the lagend (place it in the legend folder)
       selected -- If the dataset should be selected by default
       link -- link for data download (optional)
+      style -- custom styles for shapefiles and rasters (create them in mapstyling.js and add them here)
+      
 
       ONLY FOR SHAPEFILES 
+      styleProperty -- the property you want to use for styling the map (if conditional styling based on properties in the shapefile)
       tooltip -- created in tooltips.js
       popup -- created in popups.js
       
+      If map layer is linked to chart:
       chartProperties -- which properties from the shapefile to be used 
       namesOfProperties -- Names of the properties (use the same names in the chart for the colors)
-      chartID -- ID of the chart the map should be connected to
        */
       datasets: [
         {
@@ -131,7 +142,7 @@ function Data() {
           legendSrc: "exampleLegend2.png",
           selected: false,
         },
-        // Example of map linked to chart - advanced usage
+        // Example of map layer linked to chart
         {
           id: 4,
           sectionID: 2,
@@ -139,25 +150,37 @@ function Data() {
           type: "shapefile",
           src: "Watersheds.zip",
           style: Style().redToBlue,
+          styleProperty: "Base_idx",
           legendSrc: "exampleLegend1.png",
           selected: true,
           chartProperties: ["L_ann", "Qf_ann", "Qb_ann"], // properties from the shapefile to display on the chart
           namesOfProperties: ["Property1", "Property2", "Property3"], // Names of the properties (use the same names in the chart for the colors)
-          chartID: 1, // link to corresponding chartID
         },
       ],
 
-      /* Each chart include:
+      /* A chart include:
       title -- chart title
       yLabel -- label of y axis
-      SectionID -- which dataSection the chart belongs to
-      chartID -- order in array
       columns -- data for the chart - the first row includes the x-labels
       colors -- colors for the data 
       type -- line or bar
-      linkedToMap -- true or false*/
-      charts: [
-        {
+      yMax,yMin -- optional max and min values for the y-axis*/
+      chart: {
+        title: "Chart linked to map",
+        yLabel: "Example y Label",
+        columns: [], // empty if linked chart
+        colors: {
+          // same name as stated in the namesOfProperties
+          Property1: "#66383D",
+          Property2: "#EAC7CB",
+          Property3: "E67F8B",
+        },
+        type: "bar",
+        yMax: 2500, // optional max value on axis
+      },
+
+      /* Example of non linked chart
+          
           title: "Example Line chart",
           yLabel: "Example y Label",
           sectionID: 1,
@@ -175,26 +198,7 @@ function Data() {
             "Data-3": "#009933",
           },
           type: "line",
-        },
-
-        // Example of a chart linked to a shapefile
-        {
-          linkedToMap: true,
-          title: "Chart linked to map",
-          yLabel: "Example y Label",
-          sectionID: 2,
-          chartID: 1,
-          columns: [], // empty from the beginngin
-          colors: {
-            // same name as stated in the namesOfProperties
-            Property1: "#66383D",
-            Property2: "#EAC7CB",
-            Property3: "E67F8B",
-          },
-          type: "bar",
-          yMax: 2500, // optional max value on axis
-        },
-      ],
+        }, */
     },
   };
 }

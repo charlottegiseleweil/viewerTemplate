@@ -11,7 +11,7 @@ function CardInfo(props) {
         <h5 className="font-weight-normal">
           {props.item.title}
           &nbsp;&nbsp;&nbsp;
-          {props.item.link && (
+          {props.item.link && props.showDownloadButton && (
             <a
               className=" color-white "
               href={props.item.link}

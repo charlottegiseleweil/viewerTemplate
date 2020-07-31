@@ -94,7 +94,7 @@ function Style() {
   // example -- styling based on the property called "Base_idx" in the shapefile
   function redToBlue(feature) {
     return {
-      fillColor: redToBlueColor(feature.properties.Base_idx),
+      fillColor: redToBlueColor(feature),
       weight: 0.5,
       opacity: 0.9,
       color: "#958f8f",
@@ -106,7 +106,7 @@ function Style() {
   // example functions for shapefiles -- change "xxx" to the name of your shapefile property
   function blues(feature) {
     return {
-      fillColor: bluesColor(feature.properties.xxx),
+      fillColor: bluesColor(feature),
       weight: 0.5,
       opacity: 0.9,
       color: "#958f8f",
@@ -116,7 +116,7 @@ function Style() {
   }
   function greens(feature) {
     return {
-      fillColor: greensColor(feature.properties.xxx),
+      fillColor: greensColor(feature),
       weight: 0.5,
       opacity: 0.9,
       color: "#958f8f",
@@ -126,7 +126,7 @@ function Style() {
   }
   function reds(feature) {
     return {
-      fillColor: redsColor(feature.properties.xxx),
+      fillColor: redsColor(feature),
       weight: 0.5,
       opacity: 0.9,
       color: "#958f8f",
@@ -136,7 +136,7 @@ function Style() {
   }
   function purples(feature) {
     return {
-      fillColor: purplesColor(feature.properties.xxx),
+      fillColor: purplesColor(feature),
       weight: 0.5,
       opacity: 0.9,
       color: "#958f8f",
@@ -153,7 +153,7 @@ function Style() {
     greens: greens,
     reds: reds,
     purples: purples,
-    greenAndRedRaster: greenAndRedColor, // raster only need a color function
+    greenAndRedRaster: greenAndRedColor, // raster only need a color
   };
 }
 

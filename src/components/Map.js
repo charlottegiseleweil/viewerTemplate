@@ -64,13 +64,14 @@ class MainMap extends React.Component {
 
   // function to update all selected layers
   updateLayers = () => {
+    this.props.chartIsLinked && updateChart([]);
     layers.clearLayers();
     this.props.selectedDatasets.forEach((id) => {
       let dataset = this.props.datasets[id];
 
       switch (dataset.type) {
         case "shapefile":
-          addShapefile(dataset);
+          addShapefile(dataset, this.props.chartIsLinked);
           break;
 
         case "tiles":
@@ -93,10 +94,14 @@ class MainMap extends React.Component {
 
 export default MainMap;
 
-function addShapefile(dataset) {
+function addShapefile(dataset, chartIsLinked) {
   shp(require("../data/shapefiles/" + dataset.src)).then(function (geojson) {
     let newLayer = L.geoJSON(geojson, {
-      style: dataset.style ? dataset.style : {},
+      style: dataset.style
+        ? function (feature) {
+            return dataset.style(feature.properties[dataset.styleProperty]);
+          }
+        : {},
 
       // add point styling
       pointToLayer: function (feature, latlng) {
@@ -117,7 +122,7 @@ function addShapefile(dataset) {
 
       onEachFeature: function (feature, layer) {
         // if we want to bind the map to a chart
-        if (dataset.chartProperties) {
+        if (chartIsLinked && dataset.chartProperties) {
           //bind function to click
           layer.on("click", function (e) {
             let columns = [["x-label", "Example x "]];
@@ -128,9 +133,11 @@ function addShapefile(dataset) {
                 feature.properties[dataset.chartProperties[i]],
               ]);
             }
-            updateChart(columns, dataset.chartID);
+            updateChart(columns);
 
-            newLayer.setStyle(dataset.style); //resets layer colors
+            newLayer.setStyle(function (feature) {
+              return dataset.style(feature.properties[dataset.styleProperty]);
+            }); //resets layer colors
             layer.setStyle({ fillOpacity: 0.7, fillColor: "#000000" }); //highlights selected.
           });
         }
