@@ -104,10 +104,125 @@ Optionally, you can configure (for shapefiles only):
 
 ## Display shapefiles
 
-[[[ AAAAA   Add here a step-by-step workflow (add layer  style it..)]]] 
+### Add the dataset
+1. Add the zipped shapefile to src/data/shapefiles
+2. Open data.js and locate the datasets array 
+3. Adding the data
+    1. Polygon shapefile --Add a the following object to the array and adjust it to fit your needs
+    
+    ``` 
+    {
+             id: 0, // order in the dataset array
+             sectionID: 0, // ID of the section the layer belongs to
+             title: "Polygon shapefile", // Add your own title
+             type: "shapefile",
+             src: "shapefile.zip", // the name of your shapefile zip
+             legendSrc: "exampleLegend3.png", // the legend -- remove if you don't want a legend
+             selected: false, // choose if the layer should be displayed by default
+             link: "", // link to download -- remove if you don't want it
+     },
+    ```
+
+    2. Point shapefile  -- Add a the following object to the array and adjust it to fit your needs 
+     ``` 
+     {
+             id: 0, // order in the dataset array
+             sectionID: 0, // ID of the section the layer belongs to
+             title: "Point shapefile", // Add your own title
+             type: "shapefile",
+             src: "pointMap.zip", // the name of your shapefile zip
+             icon: "forest.svg", // the icon you want for the point, add it to scr/static/icons
+             legendSrc: "exampleLegend3.png", // the legend -- remove if you don't want a legend
+             selected: false, // choose if the layer should be displayed by default
+             link: "", // link to download -- remove if you don't want it
+     },
+    ```
+### Add Tooltips or Popups
+Tooltips and popups are constructed in the same way, functions for tooltips are built in src/data/tooltips.js and popups in src/data/popups.js
+Example of adding a tooltip
+1. Go to tooltip.js and add the following code within the Tooltip() function:
+```
+function newTooltip(feature) {
+    return "The area is: " + feature.properties.xxx + "sqkm";
+  }
+```
+2. Customize the tooltip and change `xxx` to the property in the shapefile you want to display
+3. Add `newTooltip: newTooltip ` to the return object of Tooltip()
+4. Find your dataset in the array of datasets in data.js. Add the property `tooltip: Tooltip().newTooltip` to the dataset
+
+### Style a shapefile
+Styling functions for the shapefiles are created in src/data/mapStyling.js. Shapefiles can either be styled with the same color for every polygon or with different colors for different values of their properties. 
+1. Go to mapStyling.js and add a new color function:
+```
+const newColorSchema = (d) => {
+  return d > 0.8 
+    ? "#006d2c"
+    : d > 0.6
+    ? "#31a354"
+    : d > 0.4
+    ? "#74c476"
+    : d > 0.2
+    ? "#bae4b3"
+    : "#edf8e9";
+};
+```
+2. Change the values to the range of your properties and the colors you want
+3. Create the styling function, locate the Style() function, inside it, add a new function : 
+```
+function newColorStyle(feature) {
+    return {
+      fillColor: newColorSchema(feature),
+      weight: 0.5, // thickness of borders
+      opacity: 0.9,
+      color: "#958f8f", // color of borders
+      fillOpacity: 0.5,
+    };
+  }
+```
+4. Add `newColorStyle: newColorStyle ` to the return object of Style()
+5. Find your dataset you want to style in the array of datasets in data.js. Add the following properties to the dataset:
+```
+style: Style().newColorStyle, 
+styleProperty: "xxx", // change to the name of the shapefile property you want the styling to be based on
+```
+
+If you want the same styling for all polygons skip step 1-2 and only add the color you want to `fillColor`
 
 ## Display rasters
-[[[ AAAAA   Add here a step-by-step workflow (add layer  style it..)]]] 
+### Add the dataset
+1. Add the .tif file to src/data/rasters
+2. Open data.js and locate the datasets array 
+3. Adding the data
+    ``` 
+    {
+          id: 0, // Order in array
+          sectionID: 0, // ID of the section the layer belongs to
+          title: "Raster",
+          type: "raster",
+          src: "exampleRaster.tif", // must be projected with EPSG:4326
+          style: Style().greenAndRedRaster, // change this for different styling
+          legendSrc: "exampleLegend2.png", // the legend -- remove if you don't want a legend
+          selected: false, // choose if the layer should be displayed by default
+          link: "", // link to download -- remove if you don't want it
+     },
+    ```
+### Style a raster
+1. Go to mapStyling.js and add a new color function:
+```
+const newColorFunction = (d) => {
+  switch (d) {
+    case 1: // if the data value == 1
+      return "#ab1700";
+    case -1: // if the data value == -1
+      return "#00ab39";
+    default:
+      return null;
+  }
+};
+```
+2. Change the values to the range of your properties and the colors you want
+3. Add `newColorFunction: newColorFunction` to the return object of Style()
+5. Find your dataset you want to style in the array of datasets in data.js. Add the following properties to the raster dataset: `style: Style().newColorFunction`
 
 
 If your raster takes too long to display online (check once viewer is deployed), the alternative is to serve it as tiles, it's a little more complicated, but do-able! See next section:
@@ -133,25 +248,56 @@ python gdal2tilesXYZ.py -v -x -e -z 3-13 -r near temp/colored_raster.tif tileset
 2. Publish it as Github Pages (Github Repository> Settings>Options>GitHub Pages. Choose "master branch" as source). It will take a couple minutes to publish.
 
 ### Add tiles layer link
-The URL to your tileset is: `https://{username}.github.io/{tiles-repository-name}/{tileset-folder-name}/{x}/{y}/{z}` (leave {x}/{y}/{z} exactly as is).
+The URL to your tileset is: `https://{username}.github.io/{tiles-repository-name}/{tileset-folder-name}/{x}/{y}/{z}` (leave {x}/{y}/{z} exactly as is). <br/>
 
-[[[ AAAAA Anna? --> Where exactly to add? ]]]
+Locate the datasets array in src/data/data.js and add the following code:
+```
+{
+          id: 0, // order in dataset array
+          sectionID: 0, // ID of the section the tileset should belong to
+          title: "Tileset",
+          type: "tiles",
+          src:
+            "https://{username}.github.io/{tiles-repository-name}/{tileset-folder-name}/{x}/{y}/{z}.png", // change to youur github and repo
+          legendSrc: "exampleLegend4.png", // the legend -- remove if you don't want a legend
+          selected: false, // choose if the layer should be displayed by default
+          link: "", // link to download -- remove if you don't want it
+ },
+```
 
 
 ## Build an interactive chart
 ### Option 1: Chart is not linked to maps
-[[[ AAAAA   Add here a step-by-step workflow ]]] 
+1. Set `chartIsLinkedTo: null` in the configuration in `data.js`
+1. Locate the chart object in the bottom of data.js
+2. Change the code within chart {} to the following code:
+```
+          title: "Example Line chart",
+          yLabel: "Example y Label",
+          columns: [
+            ["x-label", "Label-1", "Label-2", "Label-3"],
+
+            ["Data-1", 30, 10, 25],
+            ["Data-2", 11, 13, 5],
+            ["Data-3", 10, 15, 20],
+          ],
+          colors: {
+            "Data-1": "#a6a6a6",
+            "Data-2": "#ffd633",
+            "Data-3": "#009933",
+          },
+          type: "line",
+```
+3. Change the labels, data and the colors as you like
 
 ### Option 2: Chart linked to map, linking to a shapefile layer
-[[[ AAAAA   Add here a step-by-step workflow (add layer  style it..)]]] 
-
 1. Set `chartIsLinkedTo: {datasetId}` in the configuration in `data.js`
-2. Add the following properties to the dataset in the list of all datasets (see data.js). <br/>
+2. Add the following properties to the dataset (has to be a shapefile) the chart should be linked to. <br/>
 
 - chartProperties []-- an array of the names of the properties from the shapefile to be displayed on the chart.
 - namesOfProperties [] -- an array of the names you want to display of each properie (the same name should be used to set colors).
   <br/>
-  In the chart object make sure that the columns property is empty and that the colors match the name you chose in "namesOfProperties". 
+3. In the chart object in the bottom of data.js, set the columns property to `columns: []` and make sure that the colors match the name you chose in "namesOfProperties". 
 
 ### Option 3: Chart linked to map, linking to a raster layer
 
