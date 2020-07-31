@@ -14,14 +14,26 @@ function Data() {
         showLandingPage: false, // toggle landing page
       },
 
+      // ADD YOUR BASEMAP HERE
       baseMap: {
         src:
           "https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png",
+        attribution:
+          "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>",
         center: [-12.85, -69.7],
         zoom: 9,
         labelsSrc:
           "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
       },
+      /*Example of satelite basemap
+      src:
+          "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        attribution:
+          "attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'",
+      */
+
+
+
 
       /* <--- IN THIS ARRAY ALL DATASECTIONS ARE INCLUDED --->
       Each datasection include:
@@ -86,8 +98,11 @@ function Data() {
         },
       ],
 
-      /* <--- IN THIS ARRAY ALL DATASETS ARE INCLUDED --->
 
+
+
+
+      /* <--- IN THIS ARRAY ALL DATASETS ARE INCLUDED --->
       Each dataset include:
       id -- order in array 
       sectionID -- which section the dataset belongs to
@@ -169,6 +184,10 @@ function Data() {
         },
       ],
 
+
+
+
+
       /* HERE YOU INCLUDE THE CHART --remove if you don't want a chart
       A chart include:
       title -- chart title
@@ -191,7 +210,10 @@ function Data() {
         yMax: 2500, // optional max value on axis
       },
 
-      /* Example of non linked chart
+
+
+      
+      /* Example of a non linked chart
           
           title: "Example Line chart",
           yLabel: "Example y Label",

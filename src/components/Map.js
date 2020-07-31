@@ -26,8 +26,13 @@ class MainMap extends React.Component {
     map = L.map("map", {
       center: this.props.baseMap.center,
       zoom: this.props.baseMap.zoom,
-      layers: [L.tileLayer(this.props.baseMap.src)],
+      layers: [
+        L.tileLayer(this.props.baseMap.src, {
+          attribution: this.props.baseMap.attribution,
+        }),
+      ],
     });
+    console.log(map);
     layers = L.layerGroup().addTo(map);
     this.updateLayers();
 
