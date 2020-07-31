@@ -16,17 +16,19 @@ class Legend extends React.Component {
       return this.props.selectedDatasets.map((id) => {
         let dataset = this.props.datasets[id];
         return (
-          <Row className="legend m-0" key={dataset.id}>
-            <h5 className="font-weight-normal m-0">{dataset.title}</h5>
-            <img
-              src={
-                dataset.legendSrc &&
-                require("../data/legends/" + dataset.legendSrc)
-              }
-              alt="legend"
-              width="100%"
-            />
-          </Row>
+          dataset.legendSrc && (
+            <Row className="legend m-0" key={dataset.id}>
+              <h5 className="font-weight-normal m-0">{dataset.title}</h5>
+              <img
+                src={
+                  dataset.legendSrc &&
+                  require("../data/legends/" + dataset.legendSrc)
+                }
+                alt="legend"
+                width="100%"
+              />
+            </Row>
+          )
         );
       });
     }

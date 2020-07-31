@@ -29,7 +29,7 @@ class App extends React.Component {
           page: <AboutPage />,
         },
       ],
-      showLandingPage: true, //Toggle on and off the landing page
+      showLandingPage: Data().explorer.config.showLandingPage,
     };
   }
 
