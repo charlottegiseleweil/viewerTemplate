@@ -12,7 +12,14 @@ _Do you want your dashboard to be deployed on the official [visualization galler
 5. Run `npm start` -- this will run the app in the development mode.<br />
    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
    The page will reload if you make edits.<br />
-   You will also see any lint errors in the console.
+   You will also see any errors in the console. <br />
+   *The browser might open http://localhost:3000/viewerTemplate by default, the "viewerTemplate" part of the link will be removed once you follow the steps in "Deploying the dashboard to GitHub pages"*
+   
+## Setting up the basemap and configurations 
+Go to src/data/data.js <br/>
+1. In the top of the file, there is a short config section where you can decide e.g. if you want the datasets to be downloadable or if you want to toggle the landing page
+2. Underneath you find the settings for the base map 
+
 
 ## Adding your own data
 
@@ -26,14 +33,14 @@ The template has the functionality to include the following formats of spatial d
 - Rasters: .tif images projected with EPSG:4326 place in `data/rasters`.
 - Tilesets: link to the URL of a tileset needs to be provided in `src/data/data.js`.
 
-#### src/data/Data.js
+#### src/data/data.js
 
 This is where you add links to all your datasets and their information. It is constructed as JSON objects where each dashboard (originally just the one called explorer) has its own properties. <br/>
 Each dashboard must contain the following properties: <br/>
 `baseMap` <br/>
 `dataSections` An array of all the data sections <br/>
 `datasets` An array of all the datasets with specified information about which section they belong to, legend image, styling, and source type. <br/>
-`charts` An array of all charts, their data and to which section they belong to. Charts can be either static and belong to an entire section, or interactive and connected to a specific shapefile. See more about this under "Creating interactive charts"
+`chart` The chart to be displayed in the bottom of the left panel. To create a linked chart see "Creating linked charts"
 
 #### src/data/mapStyling.js
 
@@ -67,23 +74,22 @@ In this file, you can edit the content of the about page. At the beginning of th
 
 #### src/components/Landing.js
 
-In this file, you can edit the Landing page. If you don't want it you can remove it from `App.js`
+In this file, you can edit the Landing page. If you don't want it you can remove it from `data.js`
 
 #### src/components/LeftPanel.js
 
-In this file, you can make custom changes to the left panel
+In this file, you can make custom changes to the left panel - like changing the header "Explorer"
 
-## Interactive charts - advanced users.
+## Linked charts - advanced users.
 
-Interactive charts can only be connected to shapefiles.
-
-To create an interactive chart add the following properties to the dataset in the list of all datasets (see data.js).
+Linked charts can only be connected to shapefiles.
+1. Set `chartIsLinkedTo: {datasetId}` in the configuration in `data.js`
+2. Add the following properties to the dataset in the list of all datasets (see data.js). <br/>
 
 - chartProperties []-- an array of the names of the properties from the shapefile to be displayed on the chart.
 - namesOfProperties [] -- an array of the names you want to display of each properie (the same name should be used to set colors).
-- chartID -- the ID of the chart the shapefile should be connected to.
   <br/>
-  In the chart make sure that the columns property is empty and that the colors match the name you chose in "namesOfProperties". Add the property `linkedToMap: true`.
+  In the chart object make sure that the columns property is empty and that the colors match the name you chose in "namesOfProperties". 
 
 ## Adding a new menu tab (optional)
 
