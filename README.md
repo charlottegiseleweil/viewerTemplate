@@ -36,6 +36,7 @@ This is a template for creating your own map-based dashboard <br/>
    git remote add origin https://github.com/{username}/{repo-name}.git```
 4. Deploy your app (still in your bash, project directory), run: `npm run deploy` <br/>
    Yay!! Your app is now running at `https://{username}.github.io/{repo-name}/`
+   -----> to update any changes `npm run deploy`
 5. (Optional) Push the source code to your Github repo:
 ```
 git add *
