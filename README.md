@@ -1,13 +1,12 @@
 Demo: http://viz.naturalcapitalproject.org/viewerTemplate/
 
 This is a template for creating your own map-based dashboard <br/>
-_Do you want your dashboard to be deployed on the official [visualization gallery](http://viz.naturalcapitalproject.org/) of the Natural Capital Project? Please send an email to: chweil@stanford.edu and haagg.anna@gmail.com with a link to your repo._
+_Do you want your dashboard to be deployed on the official [visualization gallery](http://viz.naturalcapitalproject.org/) of the Natural Capital Project? [Email us](mailto:chweil@stanford.edu) a link to your repo.
 
 ## Getting started
 
-1. (optional) Install [VScode](https://code.visualstudio.com/download) or any other text editor you prefer.
-2. Install [node.js](https://nodejs.org/en/download/)
-3. Download or clone this repository and open the project directory in VScode (or any other code editor)
+1. Install [node.js](https://nodejs.org/en/download/), and a text editor (e.g  [VScode](https://code.visualstudio.com/download) )
+3. Download or clone this repository and open the project directory in your text editor
 4. Open the terminal in your project directory and run `npm install` - this will install all dependencies
 5. Run `npm start` -- this will run the app in the development mode.<br />
    Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -126,26 +125,21 @@ Done!
 
 ## Deploying the dashboard to GitHub pages
 
-To do this you need to have a GitHub account
-
-1. Create a Github repository
-2. Change the `homepage`property in the `package.json` file. <br />
-   The new value will be http://{username}.github.io/{repo-name}. {username} is your GitHub username, and {repo-name} is the name of the GitHub repository you created. It will look like this <br />
-   `"homepage": "http://annfr542.github.io/dashboard"`
-3. Initialize your repo and add it as a remote in your local git repository. <br/>
-   Open your git bash and navigate to your project folder<br/>
-   Initialize it: `git init`<br/>
-   Add it as remote: `git remote add origin http://{username}.github.io/{repo-name}.git`
-4. Deploy your app <br>
-   In the project directory, run: `npm run deploy` <br/>
-   Your app is now running at https://{username}.github.io/{repo-name}/
-5. (Optional) Push the source code to your Github repo <br />
-
+1. On github, create a new Github repository (you need to have a GitHub account)
+2. In the `package.json` file, change the `homepage`property to `http://{username}.github.io/{repository-name}`. (e.g `"homepage": "http://myusername.github.io/myviewer"`)
+3. In command line (Open your terminal/git bash and navigate to your project folder), initialize your repo and link it: <br/>
+   Open your terminal/git bash and navigate to your project folder<br/>
+   ```git init
+   git remote add origin https://github.com/{username}/{repo-name}.git```
+4. Deploy your app (still in your bash, project directory), run: `npm run deploy` <br/>
+   Yay!! Your app is now running at `https://{username}.github.io/{repo-name}/`
+5. (Optional) Push the source code to your Github repo:
 ```
 git add *
 git commit -m "Your commit message"
 git push origin master
 ```
+6. To have your viewer hosted on `viz.naturalcapitalproject.stanford.edu/{your-viewer}`, and featured in our visualization gallery, [email us](mailto:chweil@stanford.edu), including the link to your viewer.
 
 ## Advanced Scripts
 
