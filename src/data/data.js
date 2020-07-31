@@ -1,6 +1,4 @@
-/* 
-This file includes the data for all maps, text, legends etc
-*/
+import React from "react";
 import Style from "./mapStyling";
 import Tooltip from "./tooltips";
 import Popup from "./popups";
@@ -8,6 +6,7 @@ import Popup from "./popups";
 function Data() {
   return {
     explorer: {
+      // <---START HERE!!--->
       config: {
         showInfoButton: true, // show more information for all data sections
         showDownloadButton: true, // show download button if there is a link to the dataset
@@ -23,7 +22,8 @@ function Data() {
         labelsSrc:
           "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
       },
-      /*
+
+      /* <--- IN THIS ARRAY ALL DATASECTIONS ARE INCLUDED --->
       Each datasection include:
       id -- order in array 
       title -- title of section
@@ -32,7 +32,6 @@ function Data() {
       img -- image for secondary panel (optional) should be saved in static/images/
 
       expanded -- if the secion is expanded or collapsed by default (true or false)
-      
        */
       dataSections: [
         {
@@ -41,13 +40,29 @@ function Data() {
           infotext: [
             {
               subtitle: "Description",
-              text:
-                "This section includes two shapefiles, one polygon and one pointmap. The pointmap has tooltips and popups that are displayed when the icon is clicked. ",
+              text: (
+                <div>
+                  This section includes two shapefiles, one polygon and one pointmap. The
+                  pointmap has tooltips and popups that are displayed when the icon is
+                  clicked.{" "}
+                  <a
+                    href="https://github.com/charlottegiseleweil/viewerTemplate"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    This is a link to the Github repo
+                  </a>
+                </div>
+              ),
             },
             {
               subtitle: "Method",
-              text:
-                "Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aenean commodo ligula eget dolor.Aenean massa. Cum sociis natoque penatibus et magnis disparturient montes, nascetur ridiculus mus.",
+              text: (
+                <div>
+                  Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aenean commodo
+                  ligula eget dolor.Aenean massa. Cum sociis natoque penatibus et magnis
+                  disparturient montes, nascetur ridiculus mus.
+                </div>
+              ),
             },
           ],
           img: "natcap.png",
@@ -59,25 +74,20 @@ function Data() {
           infotext: [
             {
               subtitle: "Description",
-              text: "This section includes rasters",
-            },
-          ],
-          expanded: false,
-        },
-        {
-          id: 2,
-          title: "Third data section",
-          infotext: [
-            {
-              subtitle: "Description",
-              text:
-                "This section has an linked chart connected to the shapefile. Read about details for this in the readme.",
+              text: (
+                <div>
+                  This section has an linked chart connected to the shapefile. Read about
+                  details for this in the readme.
+                </div>
+              ),
             },
           ],
           expanded: true,
         },
       ],
-      /*
+
+      /* <--- IN THIS ARRAY ALL DATASETS ARE INCLUDED --->
+
       Each dataset include:
       id -- order in array 
       sectionID -- which section the dataset belongs to
@@ -88,7 +98,6 @@ function Data() {
       selected -- If the dataset should be selected by default
       link -- link for data download (optional)
       style -- custom styles for shapefiles and rasters (create them in mapstyling.js and add them here)
-      
 
       ONLY FOR SHAPEFILES 
       styleProperty -- the property you want to use for styling the map (if conditional styling based on properties in the shapefile)
@@ -125,7 +134,7 @@ function Data() {
         },
         {
           id: 2,
-          sectionID: 1,
+          sectionID: 0,
           title: "Tileset",
           type: "tiles",
           src:
@@ -135,7 +144,7 @@ function Data() {
         },
         {
           id: 3,
-          sectionID: 1,
+          sectionID: 0,
           title: "Raster",
           type: "raster",
           src: "exampleRaster.tif", // must be projected with EPSG:4326
@@ -143,10 +152,11 @@ function Data() {
           legendSrc: "exampleLegend2.png",
           selected: false,
         },
+
         // Example of map layer linked to chart
         {
           id: 4,
-          sectionID: 2,
+          sectionID: 1,
           title: "Styled shapefile",
           type: "shapefile",
           src: "Watersheds.zip",
@@ -159,7 +169,8 @@ function Data() {
         },
       ],
 
-      /* A chart include:
+      /* HERE YOU INCLUDE THE CHART --remove if you don't want a chart
+      A chart include:
       title -- chart title
       yLabel -- label of y axis
       columns -- data for the chart - the first row includes the x-labels
