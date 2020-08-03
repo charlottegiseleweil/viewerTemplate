@@ -11,7 +11,7 @@ function Data() {
         showInfoButton: true, // show more information for all data sections
         showDownloadButton: true, // show download button if there is a link to the dataset
         chartIsLinkedTo: 4, // the datasetID the chart should be linked to, if no linking write chartIsLinkedTo: null
-        showLandingPage: false, // toggle landing page
+        showLandingPage: true, // toggle landing page
       },
 
       // ADD YOUR BASEMAP HERE
