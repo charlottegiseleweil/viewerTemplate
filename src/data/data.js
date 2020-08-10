@@ -127,7 +127,7 @@ function Data() {
         {
           id: 0,
           sectionID: 0,
-          title: "Simple shapefile",
+          title: "Shapefile (polygons)",
           type: "shapefile",
           src: "AOI.zip",
           style: Style().redOutline,
@@ -138,7 +138,7 @@ function Data() {
         {
           id: 1,
           sectionID: 0,
-          title: "Pointmap",
+          title: "Shapefile (points)",
           type: "shapefile",
           src: "nationalParks.zip",
           legendSrc: "nationalParksLegend.png",
@@ -150,7 +150,7 @@ function Data() {
         {
           id: 2,
           sectionID: 0,
-          title: "Tileset",
+          title: "Tiles",
           type: "tiles",
           src:
             "https://charlottegiseleweil.github.io/tiles/amazon/Dengue_PEM_pres/{z}/{x}/{y}.png",
