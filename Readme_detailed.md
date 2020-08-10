@@ -30,7 +30,7 @@ In `src/App.js`, edit the menu links and the name of the viewer. You could also 
  In `src/components/LeftPanel.js`, you can make custom changes to the left panel - e.g changing the header *Explorer*.
 
 #### About tab
-In `src/components/AboutPage.js`, edit contents of the *About* tab. The array `contributors` can be updated with images (and yes, you can remove our faces, but yes, we’d be offended;)
+In `src/pages/AboutPage.js`, edit contents of the *About* tab. The array `contributors` can be updated with images (and yes, you can remove our faces, but yes, we’d be offended;)
 
 #### Welcome window 
 In `src/components/Landing.js`, edit the welcome window (landing page). This window can be removed in the configuration section (top of `src/data/data.js`)
