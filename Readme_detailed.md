@@ -152,9 +152,9 @@ function newTooltip(feature) {
 
 ### Style a shapefile
 Styling functions for the shapefiles are created in src/data/mapStyling.js. Shapefiles can either be styled with the same color for every polygon or with different colors for different values of their properties. 
-1. Go to mapStyling.js and add a new color function:
+1. Go to mapStyling.js and add a new colorscale function - Change the values to the range of your shapefile attributes and the colors you want :
 ```
-const newColorSchema = (d) => {
+const newColorScale = (d) => {
   return d > 0.8 
     ? "#006d2c"
     : d > 0.6
@@ -166,12 +166,19 @@ const newColorSchema = (d) => {
     : "#edf8e9";
 };
 ```
-2. Change the values to the range of your properties and the colors you want
-3. Create the styling function, locate the Style() function, inside it, add a new function : 
+If you have a qml file with your colorscale you can use the function **qml\_to\_javascript.py** to convert the qml to javascript code.
+Place the qml file in the **utils** folder and write the following in the terminal:
+```
+cd utils
+python qml_to_javascript.py --qml color.qml
+```
+The javascript code will be displayed directly in the terminal
+
+2. Locate the Style() function, inside it, add a new styling function : 
 ```
 function newColorStyle(feature) {
     return {
-      fillColor: newColorSchema(feature),
+      fillColor: newColorScale(feature),
       weight: 0.5, // thickness of borders
       opacity: 0.9,
       color: "#958f8f", // color of borders
@@ -179,8 +186,8 @@ function newColorStyle(feature) {
     };
   }
 ```
-4. Add `newColorStyle: newColorStyle ` to the return object of Style()
-5. Find your dataset you want to style in the array of datasets in data.js. Add the following properties to the dataset:
+3. Add `newColorStyle: newColorStyle ` to the return object of Style()
+4. Find your dataset you want to style in the array of datasets in data.js. Add the following properties to the dataset:
 ```
 style: Style().newColorStyle, 
 styleProperty: "xxx", // change to the name of the shapefile property you want the styling to be based on
@@ -207,7 +214,7 @@ If you want the same styling for all polygons skip step 1-2 and only add the col
      },
     ```
 ### Style a raster
-1. Go to mapStyling.js and add a new color function:
+1. Go to mapStyling.js and add a new color function - Change the values to the range of your properties and the colors you want
 ```
 const newColorFunction = (d) => {
   switch (d) {
@@ -220,9 +227,16 @@ const newColorFunction = (d) => {
   }
 };
 ```
-2. Change the values to the range of your properties and the colors you want
-3. Add `newColorFunction: newColorFunction` to the return object of Style()
-5. Find your dataset you want to style in the array of datasets in data.js. Add the following properties to the raster dataset: `style: Style().newColorFunction`
+If you have a qml file with your colorscale you can use the function **qml\_to\_javascript.py** to convert the qml to javascript code.
+Place the qml file in the **utils** folder and write the following in the terminal:
+```
+cd utils
+python qml_to_javascript.py --qml color.qml
+```
+The javascript code will be displayed directly in the terminal
+
+2. Add `newColorFunction: newColorFunction` to the return object of Style()
+3. Find your dataset you want to style in the array of datasets in data.js. Add the following properties to the raster dataset: `style: Style().newColorFunction`
 
 
 If your raster takes too long to display online (check once viewer is deployed), the alternative is to serve it as tiles, it's a little more complicated, but do-able! See next section:
@@ -232,7 +246,7 @@ If your raster takes too long to display online (check once viewer is deployed),
 1. Make colorscale 
 From QGIS or ArcGIS, you can export a .qml colorscale, and use**qml\_to\_colortxt.py** to convert to a .txt file in the right format.
 ```
-cd utils/build_tiles
+cd utils
 python qml\_to\_colortxt.py --qml color.qml --txt color.txt
 ```
 2. Color your raster `{raster.tif}` with this colorscale
