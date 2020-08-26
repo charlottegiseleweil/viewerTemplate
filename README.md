@@ -6,9 +6,9 @@ This is a template for creating your own map-based dashboard <br/>
 # Set up
 
 1. Install [node.js](https://nodejs.org/en/download/), and a text editor (e.g  [VScode](https://code.visualstudio.com/download) )
-3. Download or clone this repository and open the project directory in your text editor
-4. Open the terminal in your project directory and run `npm install` - this will install all dependencies
-5. Run `npm start` -- this will run the app in the development mode.<br />
+2. Download or clone this repository and open the project directory in your text editor ([how to clone](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository))
+3. Open the terminal (Command Prompt in Windows) in your project directory and run `npm install` - this will install all dependencies
+4. Run `npm start` -- this will run the app in the development mode.<br />
    Open [http://localhost:3000](http://localhost:3000) to view it in the browser. <br />
    The page will reload if you make edits.
    You will also see any errors in the console. <br />
