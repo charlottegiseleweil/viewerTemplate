@@ -79,6 +79,7 @@ All external data such as _shapefiles_, _rasters_, _images_, and _legends_ shoul
 - Shapefiles: saved as a zip and placed in `data/shapefiles`. 
 - Rasters: .tif images projected with EPSG:4326 placed in `data/rasters`.
 - Tilesets: link to the URL of a tileset needs to be provided in `src/data/data.js`.
+- Legends: saved as png or jpg and placed in `data/legends`. For the best results, remove all white space (padding) from the legend image - it will be added in the viewer. 
 
 ## Files organisation
 
