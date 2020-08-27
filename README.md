@@ -33,8 +33,9 @@ This is a template for creating your own map-based dashboard <br/>
 2. In the `package.json` file, change the `homepage` property to `http://{username}.github.io/{repository-name}`. (e.g `"homepage": "http://myusername.github.io/myviewer"`)
 3. In command line (Open your terminal/git bash and navigate to your project folder), initialize your repo and link it: <br/>
    Open your terminal/git bash and navigate to your project folder<br/>
-   ```git init
-   git remote add origin https://github.com/{username}/{repo-name}.git```
+   ```
+   git remote set-url origin https://github.com/{username}/{repo-name}.git
+   ```
 4. Deploy your app (still in your bash, project directory), run: `npm run deploy` <br/>
    Yay!! Your app is now running at `https://{username}.github.io/{repo-name}/`
    -----> to update any changes `npm run deploy`
