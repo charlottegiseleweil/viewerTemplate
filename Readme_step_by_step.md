@@ -22,15 +22,13 @@ You will find here detailed information to use the viewerTemplate.
 
 
 # Deploy viewer online 
-[Detailed workflow with images](Readme_step_by_step.md#Deploy-viewer-online)
 1. On github, create a new Github repository (you need to have a GitHub account). We'll deploy the viewer with GitHub pages.
 <img width="700" alt="portfolio_view" src="readme_gifs/create_repo.gif">
 
 2. In the `package.json` file, change the `homepage` property to `http://{username}.github.io/{repository-name}/`. (e.g `"homepage": "http://myusername.github.io/myViewer/"`)
 <img width="700" alt="portfolio_view" src="readme_gifs/change_homepage.gif">
 
-3. In command line (Open your terminal/git bash and navigate to your project folder), initialize your repo and link it: <br/>
-   Open your terminal/git bash and navigate to your project folder<br/>
+3. Open your terminal/git bash and navigate to your project folder, change the remote url to your github repo: <br/>
    ```
    git remote set-url origin https://github.com/{username}/{repo-name}.git
    ```
