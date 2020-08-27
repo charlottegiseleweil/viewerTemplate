@@ -24,6 +24,11 @@ You will find here detailed information to use the viewerTemplate.
 
 ### Add the dataset
 1. Add the zipped shapefile to src/data/shapefiles
+<img width="700" alt="portfolio_view" src="readme_gifs/add_data_to_folder.gif">
+
+2. Add the legend to src/data/legends
+<img width="700" alt="portfolio_view" src="readme_gifs/add_legend_to_folder.gif">
+
 2. Open data.js and locate the datasets array 
 3. Adding the data
     1. Polygon shapefile --Add a the following object to the array and adjust it to fit your needs
@@ -55,7 +60,7 @@ You will find here detailed information to use the viewerTemplate.
              link: "", // link to download -- remove if you don't want it
      },
     ```
-
+<img width="700" alt="portfolio_view" src="readme_gifs/add_data.gif">
 
 # Deploy viewer online 
 1. On github, create a new Github repository (you need to have a GitHub account). We'll deploy the viewer with GitHub pages.
