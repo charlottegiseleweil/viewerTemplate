@@ -19,6 +19,42 @@ You will find here detailed information to use the viewerTemplate.
    You will also see any errors in the console. <br />
    *The browser might open http://localhost:3000/viewerTemplate by default, the "viewerTemplate" part of the link will be removed once you follow the steps in "Deploying the dashboard to GitHub pages"*
    <img width="700" alt="portfolio_view" src="readme_gifs/npm_start.gif">
+   
+## Display shapefiles
+
+### Add the dataset
+1. Add the zipped shapefile to src/data/shapefiles
+2. Open data.js and locate the datasets array 
+3. Adding the data
+    1. Polygon shapefile --Add a the following object to the array and adjust it to fit your needs
+    
+    ``` 
+    {
+             id: 0, // order in the dataset array
+             sectionID: 0, // ID of the section the layer belongs to
+             title: "Polygon shapefile", // Add your own title
+             type: "shapefile",
+             src: "shapefile.zip", // the name of your shapefile zip
+             legendSrc: "exampleLegend3.png", // the legend -- remove if you don't want a legend
+             selected: false, // choose if the layer should be displayed by default
+             link: "", // link to download -- remove if you don't want it
+     },
+    ```
+
+    2. Point shapefile  -- Add a the following object to the array and adjust it to fit your needs 
+     ``` 
+     {
+             id: 0, // order in the dataset array
+             sectionID: 0, // ID of the section the layer belongs to
+             title: "Point shapefile", // Add your own title
+             type: "shapefile",
+             src: "pointMap.zip", // the name of your shapefile zip
+             icon: "forest.svg", // the icon you want for the point, add it to scr/static/icons
+             legendSrc: "exampleLegend3.png", // the legend -- remove if you don't want a legend
+             selected: false, // choose if the layer should be displayed by default
+             link: "", // link to download -- remove if you don't want it
+     },
+    ```
 
 
 # Deploy viewer online 
