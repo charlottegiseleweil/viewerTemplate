@@ -3,7 +3,8 @@ Demo: http://viz.naturalcapitalproject.org/viewerTemplate/
 This is a template for creating your own map-based dashboard <br/>
 *Do you want your dashboard to be featured on the Natural Capital Project's [visualization gallery](http://viz.naturalcapitalproject.org/)? [Email us](mailto:chweil@stanford.edu) a link to your repo.*
 
-# Set up
+# Set up 
+[Detailed set up with images](Readme_step_by_step.md#Set-up)
 
 1. Install [node.js](https://nodejs.org/en/download/), and a text editor (e.g  [VScode](https://code.visualstudio.com/download) )
 2. Download or clone this repository and open the project directory in your text editor ([how to clone](https://docs.github.com/en/enterprise/2.13/user/articles/cloning-a-repository))
@@ -27,7 +28,7 @@ This is a template for creating your own map-based dashboard <br/>
 * [Workflow to edit viewer's texts](https://github.com/charlottegiseleweil/viewerTemplate/blob/master/Readme_detailed.md#edit-texts) (in `src/components/Footer.js`, `src/components/AboutPage.js`, `src/components/Landing.js`, `src/components/LeftPanel.js`)
 
 # Deploy viewer online 
-
+[Detailed workflow with images](Readme_step_by_step.md#Deploy-viewer-online)
 1. On github, create a new Github repository (you need to have a GitHub account). We'll deploy the viewer with GitHub pages.
 2. In the `package.json` file, change the `homepage` property to `http://{username}.github.io/{repository-name}`. (e.g `"homepage": "http://myusername.github.io/myviewer"`)
 3. In command line (Open your terminal/git bash and navigate to your project folder), initialize your repo and link it: <br/>
