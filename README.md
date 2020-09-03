@@ -1,7 +1,9 @@
 Demo: http://viz.naturalcapitalproject.org/viewerTemplate/
 
 <br/>
+
 ![](readme_gifs/viewerTemplateHowTo.png)
+
 <br/>
 This is a template for creating your own interactive map-based viewer
 <br/>
