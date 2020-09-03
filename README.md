@@ -1,8 +1,15 @@
-![](readme_gifs/viewerTemplateHowTo.png)
 Demo: http://viz.naturalcapitalproject.org/viewerTemplate/
 
-This is a template for creating your own map-based dashboard 
 <br/>
+
+![](readme_gifs/viewerTemplateHowTo.png)
+
+<br/>
+
+This is a template for creating your own interactive map-based viewer
+
+<br/>
+
 *Do you want your dashboard to be featured on the Natural Capital Project's [visualization gallery](http://viz.naturalcapitalproject.org/)? [Email us](mailto:chweil@stanford.edu) a link to your repo.*
 
 # Set up 
