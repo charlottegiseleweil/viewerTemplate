@@ -48,9 +48,9 @@ function LandingPage(props) {
               .
               <br />
               <br />
-              Please cite us in contributors, and send us your best creations!{" "}
+              Keep in mind graphical integrity principles, and have fun!{" "}
               <br />
-              /Anna & Charlie!
+              Anna & Charlie!
             </h5>
           </Row>
 
