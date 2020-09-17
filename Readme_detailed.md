@@ -328,11 +328,11 @@ Sorry, this is not implemented (yet), but you can do this with Google Earth Engi
 # Deploy viewer online
 
 1. On github, create a new Github repository (you need to have a GitHub account). We'll deploy the viewer with GitHub pages.
-2. In the `package.json` file, change the `homepage` property to `http://{username}.github.io/{repository-name}`. (e.g `"homepage": "http://myusername.github.io/myviewer"`)
+2. In the `package.json` file, change the `homepage` property to `https://{username}.github.io/{repository-name}`. (e.g `"homepage": "https://myusername.github.io/myviewer"`)
 3. In command line (Open your terminal/git bash and navigate to your project folder), initialize your repo and link it: <br/>
    Open your terminal/git bash and navigate to your project folder<br/>
    ```git init
-   git remote add origin https://github.com/{username}/{repo-name}.git```
+   git remote set-url origin https://github.com/{username}/{repo-name}.git```
 4. Deploy your app (still in your bash, project directory), run: `npm run deploy` <br/>
    Yay!! Your app is now running at `https://{username}.github.io/{repo-name}/`
 5. (Optional) Push the source code to your Github repo:
