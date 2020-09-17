@@ -39,7 +39,7 @@ This is a template for creating your own interactive map-based viewer
 # Deploy viewer online 
 [Detailed workflow with images](Readme_step_by_step.md#Deploy-viewer-online)
 1. On github, create a new Github repository (you need to have a GitHub account). We'll deploy the viewer with GitHub pages.
-2. In the `package.json` file, change the `homepage` property to `http://{username}.github.io/{repository-name}`. (e.g `"homepage": "http://myusername.github.io/myviewer"`)
+2. In the `package.json` file, change the `homepage` property to `https://{username}.github.io/{repository-name}`. (e.g `"homepage": "https://myusername.github.io/myviewer"`)
 3. Open your terminal/git bash and navigate to your project folder, change the remote url to your github repo: <br/>
    ```
    git remote set-url origin https://github.com/{username}/{repo-name}.git
